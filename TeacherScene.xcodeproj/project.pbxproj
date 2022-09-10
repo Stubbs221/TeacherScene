@@ -9,21 +9,41 @@
 /* Begin PBXBuildFile section */
 		1BF6DAD728CC639300A39EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD628CC639300A39EBA /* AppDelegate.swift */; };
 		1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */; };
-		1BF6DADB28CC639300A39EBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DADA28CC639300A39EBA /* ViewController.swift */; };
-		1BF6DADE28CC639300A39EBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF6DADC28CC639300A39EBA /* Main.storyboard */; };
 		1BF6DAE028CC639400A39EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BF6DADF28CC639400A39EBA /* Assets.xcassets */; };
 		1BF6DAE328CC639400A39EBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF6DAE128CC639400A39EBA /* LaunchScreen.storyboard */; };
+		1BF6DAF728CC67C400A39EBA /* TeacherCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAF628CC67C400A39EBA /* TeacherCourseView.swift */; };
+		1BF6DAF928CC67D600A39EBA /* TeacherCourseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAF828CC67D600A39EBA /* TeacherCourseInteractor.swift */; };
+		1BF6DAFB28CC67E800A39EBA /* TeacherCoursePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAFA28CC67E800A39EBA /* TeacherCoursePresenter.swift */; };
+		1BF6DAFD28CC67FC00A39EBA /* TeacherCourseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAFC28CC67FC00A39EBA /* TeacherCourseRouter.swift */; };
+		1BF6DAFF28CC681700A39EBA /* TeacherPaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAFE28CC681700A39EBA /* TeacherPaywallView.swift */; };
+		1BF6DB0128CC682A00A39EBA /* TeacherPaywallPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0028CC682A00A39EBA /* TeacherPaywallPresenter.swift */; };
+		1BF6DB0328CC683700A39EBA /* TeacherPaywallInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0228CC683700A39EBA /* TeacherPaywallInteractor.swift */; };
+		1BF6DB0528CC684400A39EBA /* TeacherPaywallRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0428CC684400A39EBA /* TeacherPaywallRouter.swift */; };
+		1BF6DB0728CC7ED600A39EBA /* TeacherCourseModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0628CC7ED600A39EBA /* TeacherCourseModuleBuilder.swift */; };
+		1BF6DB0928CC8DDA00A39EBA /* NavigationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0828CC8DDA00A39EBA /* NavigationBuilder.swift */; };
+		1BF6DB0B28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0A28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift */; };
+		1BF6DB0D28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0C28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1BF6DAD328CC639300A39EBA /* TeacherScene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeacherScene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF6DAD628CC639300A39EBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1BF6DADA28CC639300A39EBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1BF6DADD28CC639300A39EBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BF6DADF28CC639400A39EBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BF6DAE228CC639400A39EBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BF6DAE428CC639400A39EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BF6DAF628CC67C400A39EBA /* TeacherCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCourseView.swift; sourceTree = "<group>"; };
+		1BF6DAF828CC67D600A39EBA /* TeacherCourseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCourseInteractor.swift; sourceTree = "<group>"; };
+		1BF6DAFA28CC67E800A39EBA /* TeacherCoursePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCoursePresenter.swift; sourceTree = "<group>"; };
+		1BF6DAFC28CC67FC00A39EBA /* TeacherCourseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCourseRouter.swift; sourceTree = "<group>"; };
+		1BF6DAFE28CC681700A39EBA /* TeacherPaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherPaywallView.swift; sourceTree = "<group>"; };
+		1BF6DB0028CC682A00A39EBA /* TeacherPaywallPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherPaywallPresenter.swift; sourceTree = "<group>"; };
+		1BF6DB0228CC683700A39EBA /* TeacherPaywallInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherPaywallInteractor.swift; sourceTree = "<group>"; };
+		1BF6DB0428CC684400A39EBA /* TeacherPaywallRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherPaywallRouter.swift; sourceTree = "<group>"; };
+		1BF6DB0628CC7ED600A39EBA /* TeacherCourseModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCourseModuleBuilder.swift; sourceTree = "<group>"; };
+		1BF6DB0828CC8DDA00A39EBA /* NavigationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBuilder.swift; sourceTree = "<group>"; };
+		1BF6DB0A28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TacherPaywallModuleBuilder.swift; sourceTree = "<group>"; };
+		1BF6DB0C28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeaherPaywallView + SetupUI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +76,121 @@
 		1BF6DAD528CC639300A39EBA /* TeacherScene */ = {
 			isa = PBXGroup;
 			children = (
+				1BF6DAEC28CC65B900A39EBA /* TeacherCourseScreen */,
+				1BF6DAEA28CC659F00A39EBA /* TeacherPaywallModule */,
 				1BF6DAD628CC639300A39EBA /* AppDelegate.swift */,
+				1BF6DB0828CC8DDA00A39EBA /* NavigationBuilder.swift */,
 				1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */,
-				1BF6DADA28CC639300A39EBA /* ViewController.swift */,
-				1BF6DADC28CC639300A39EBA /* Main.storyboard */,
 				1BF6DADF28CC639400A39EBA /* Assets.xcassets */,
 				1BF6DAE128CC639400A39EBA /* LaunchScreen.storyboard */,
 				1BF6DAE428CC639400A39EBA /* Info.plist */,
 			);
 			path = TeacherScene;
+			sourceTree = "<group>";
+		};
+		1BF6DAEA28CC659F00A39EBA /* TeacherPaywallModule */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DB0A28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift */,
+				1BF6DAF028CC661D00A39EBA /* View */,
+				1BF6DAEF28CC661000A39EBA /* Entity */,
+				1BF6DAEE28CC660800A39EBA /* Presenter */,
+				1BF6DAED28CC65FA00A39EBA /* Interactor */,
+				1BF6DAEB28CC65B200A39EBA /* Router */,
+			);
+			path = TeacherPaywallModule;
+			sourceTree = "<group>";
+		};
+		1BF6DAEB28CC65B200A39EBA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DB0428CC684400A39EBA /* TeacherPaywallRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		1BF6DAEC28CC65B900A39EBA /* TeacherCourseScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DB0628CC7ED600A39EBA /* TeacherCourseModuleBuilder.swift */,
+				1BF6DAF528CC665300A39EBA /* View */,
+				1BF6DAF428CC664B00A39EBA /* Interactor */,
+				1BF6DAF328CC664200A39EBA /* Presenter */,
+				1BF6DAF228CC663500A39EBA /* Entity */,
+				1BF6DAF128CC662F00A39EBA /* Router */,
+			);
+			path = TeacherCourseScreen;
+			sourceTree = "<group>";
+		};
+		1BF6DAED28CC65FA00A39EBA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DB0228CC683700A39EBA /* TeacherPaywallInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		1BF6DAEE28CC660800A39EBA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DB0028CC682A00A39EBA /* TeacherPaywallPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1BF6DAEF28CC661000A39EBA /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		1BF6DAF028CC661D00A39EBA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DAFE28CC681700A39EBA /* TeacherPaywallView.swift */,
+				1BF6DB0C28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1BF6DAF128CC662F00A39EBA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DAFC28CC67FC00A39EBA /* TeacherCourseRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		1BF6DAF228CC663500A39EBA /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		1BF6DAF328CC664200A39EBA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DAFA28CC67E800A39EBA /* TeacherCoursePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1BF6DAF428CC664B00A39EBA /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DAF828CC67D600A39EBA /* TeacherCourseInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		1BF6DAF528CC665300A39EBA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1BF6DAF628CC67C400A39EBA /* TeacherCourseView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +253,6 @@
 			files = (
 				1BF6DAE328CC639400A39EBA /* LaunchScreen.storyboard in Resources */,
 				1BF6DAE028CC639400A39EBA /* Assets.xcassets in Resources */,
-				1BF6DADE28CC639300A39EBA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +263,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BF6DADB28CC639300A39EBA /* ViewController.swift in Sources */,
 				1BF6DAD728CC639300A39EBA /* AppDelegate.swift in Sources */,
+				1BF6DB0728CC7ED600A39EBA /* TeacherCourseModuleBuilder.swift in Sources */,
+				1BF6DAFB28CC67E800A39EBA /* TeacherCoursePresenter.swift in Sources */,
+				1BF6DAF728CC67C400A39EBA /* TeacherCourseView.swift in Sources */,
+				1BF6DB0D28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift in Sources */,
+				1BF6DB0128CC682A00A39EBA /* TeacherPaywallPresenter.swift in Sources */,
+				1BF6DB0928CC8DDA00A39EBA /* NavigationBuilder.swift in Sources */,
+				1BF6DAFF28CC681700A39EBA /* TeacherPaywallView.swift in Sources */,
+				1BF6DAF928CC67D600A39EBA /* TeacherCourseInteractor.swift in Sources */,
 				1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */,
+				1BF6DB0328CC683700A39EBA /* TeacherPaywallInteractor.swift in Sources */,
+				1BF6DB0528CC684400A39EBA /* TeacherPaywallRouter.swift in Sources */,
+				1BF6DB0B28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift in Sources */,
+				1BF6DAFD28CC67FC00A39EBA /* TeacherCourseRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1BF6DADC28CC639300A39EBA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1BF6DADD28CC639300A39EBA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1BF6DAE128CC639400A39EBA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +344,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,7 +420,6 @@
 				INFOPLIST_FILE = TeacherScene/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +447,6 @@
 				INFOPLIST_FILE = TeacherScene/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

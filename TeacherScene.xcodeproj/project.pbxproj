@@ -23,6 +23,9 @@
 		1BF6DB0928CC8DDA00A39EBA /* NavigationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0828CC8DDA00A39EBA /* NavigationBuilder.swift */; };
 		1BF6DB0B28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0A28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift */; };
 		1BF6DB0D28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0C28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift */; };
+		1BF6DB0F28CCADBF00A39EBA /* TeacherFeaturesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB0E28CCADBF00A39EBA /* TeacherFeaturesCollectionView.swift */; };
+		1BF6DB1128CCAE8900A39EBA /* TeacherFeaturesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB1028CCAE8900A39EBA /* TeacherFeaturesCell.swift */; };
+		1BF6DB1328CCAEB000A39EBA /* FeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DB1228CCAEB000A39EBA /* FeatureModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		1BF6DB0828CC8DDA00A39EBA /* NavigationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBuilder.swift; sourceTree = "<group>"; };
 		1BF6DB0A28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TacherPaywallModuleBuilder.swift; sourceTree = "<group>"; };
 		1BF6DB0C28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeaherPaywallView + SetupUI.swift"; sourceTree = "<group>"; };
+		1BF6DB0E28CCADBF00A39EBA /* TeacherFeaturesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherFeaturesCollectionView.swift; sourceTree = "<group>"; };
+		1BF6DB1028CCAE8900A39EBA /* TeacherFeaturesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherFeaturesCell.swift; sourceTree = "<group>"; };
+		1BF6DB1228CCAEB000A39EBA /* FeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,7 @@
 		1BF6DAEF28CC661000A39EBA /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				1BF6DB1228CCAEB000A39EBA /* FeatureModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -150,6 +157,8 @@
 			children = (
 				1BF6DAFE28CC681700A39EBA /* TeacherPaywallView.swift */,
 				1BF6DB0C28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift */,
+				1BF6DB0E28CCADBF00A39EBA /* TeacherFeaturesCollectionView.swift */,
+				1BF6DB1028CCAE8900A39EBA /* TeacherFeaturesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,8 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF6DAD728CC639300A39EBA /* AppDelegate.swift in Sources */,
+				1BF6DB0F28CCADBF00A39EBA /* TeacherFeaturesCollectionView.swift in Sources */,
 				1BF6DB0728CC7ED600A39EBA /* TeacherCourseModuleBuilder.swift in Sources */,
 				1BF6DAFB28CC67E800A39EBA /* TeacherCoursePresenter.swift in Sources */,
+				1BF6DB1328CCAEB000A39EBA /* FeatureModel.swift in Sources */,
 				1BF6DAF728CC67C400A39EBA /* TeacherCourseView.swift in Sources */,
 				1BF6DB0D28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift in Sources */,
 				1BF6DB0128CC682A00A39EBA /* TeacherPaywallPresenter.swift in Sources */,
@@ -277,6 +288,7 @@
 				1BF6DB0528CC684400A39EBA /* TeacherPaywallRouter.swift in Sources */,
 				1BF6DB0B28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift in Sources */,
 				1BF6DAFD28CC67FC00A39EBA /* TeacherCourseRouter.swift in Sources */,
+				1BF6DB1128CCAE8900A39EBA /* TeacherFeaturesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

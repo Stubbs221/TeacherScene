@@ -15,7 +15,5 @@ extension TeacherPaywallView {
     
     func setupNavigation() {
         navigationController?.navigationBar.topItem?.title = "Курс"
-        
-//        navigationController?.navigationBar.topItem?.titleView?.tintColor = .white
     }
 }

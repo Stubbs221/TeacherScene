@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol TeacherPaywallViewInput {
+protocol TeacherPaywallViewInput: AnyObject {
     var output: TeacherPaywallViewOutput? { get set }
+    var teacherFeatureDataArray: [FeatureModel] { get set }
 }
 
 protocol TeacherPaywallViewOutput {
@@ -20,6 +21,7 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
     
     var output: TeacherPaywallViewOutput?
     
+    var teacherFeatureDataArray: [FeatureModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()

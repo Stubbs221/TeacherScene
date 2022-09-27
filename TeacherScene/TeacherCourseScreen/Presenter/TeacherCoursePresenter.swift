@@ -12,7 +12,8 @@ protocol TeacherCoursePresenterInput {
 }
 
 protocol TeacherCoursePresenterOutput: AnyObject {
-    
+
+    func presenterConvertRawData(with data: DataModel)
 }
 
 class TeacherCoursePresenter {
@@ -29,10 +30,18 @@ class TeacherCoursePresenter {
         self.view = view
         self.interactor = interactor
         self.router = router
+        
+        
     }
 }
 
 extension TeacherCoursePresenter: TeacherCourseInteractorOutput {
+    func interactorDidFetchDataFromDB(with result: Result<DataModel, Error>) {
+        switch result {
+            
+        }
+    }
+    
     
 }
 

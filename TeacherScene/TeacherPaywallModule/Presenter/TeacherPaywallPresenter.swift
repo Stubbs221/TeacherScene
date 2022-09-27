@@ -39,4 +39,5 @@ extension TeacherPaywallPresenter: TeacherPaywallViewOutput {
 
 extension TeacherPaywallPresenter: TeacherPaywallInteractorOutput {
     
+    
 }

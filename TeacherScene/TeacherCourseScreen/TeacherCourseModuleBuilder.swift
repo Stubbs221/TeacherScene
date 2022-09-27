@@ -8,7 +8,7 @@
 import UIKit
 
 class TeacherCourseModuleBuilder {
-    static func build() -> UIViewController {
+    static func build(usingNavgationFactory factory: NavigationFactory) -> UIViewController {
         let view = TeacherCourseView()
         let interactor = TeacherCourseInteractor()
         let router = TeacherCourseRouter()
@@ -18,6 +18,6 @@ class TeacherCourseModuleBuilder {
         view.output = presenter
         
         router.rootViewController = view
-        return view
+        return factory(view)
     }
 }

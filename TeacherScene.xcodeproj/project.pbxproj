@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B8F932D28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F932C28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift */; };
+		1B8F932F28E17D030021DCED /* ContactTelegramTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F932E28E17D030021DCED /* ContactTelegramTableViewHeader.swift */; };
+		1BD5F2D028E31547007CC6E5 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD5F2CF28E31547007CC6E5 /* FirebaseDatabase */; };
+		1BD5F2D228E31547007CC6E5 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD5F2D128E31547007CC6E5 /* FirebaseDatabaseSwift */; };
+		1BD5F2D428E31547007CC6E5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD5F2D328E31547007CC6E5 /* FirebaseFirestore */; };
+		1BD5F2D628E31547007CC6E5 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD5F2D528E31547007CC6E5 /* FirebaseFirestoreSwift */; };
+		1BD5F2D828E31547007CC6E5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD5F2D728E31547007CC6E5 /* FirebaseStorage */; };
+		1BD5F2DB28E31924007CC6E5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2DA28E31924007CC6E5 /* APIManager.swift */; };
+		1BD5F2DD28E31A01007CC6E5 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2DC28E31A01007CC6E5 /* DataModel.swift */; };
+		1BD5F2DF28E38F58007CC6E5 /* TeacherCourseView + TableView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2DE28E38F58007CC6E5 /* TeacherCourseView + TableView Extension.swift */; };
+		1BD5F2E128E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2E028E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift */; };
 		1BF6DAD728CC639300A39EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD628CC639300A39EBA /* AppDelegate.swift */; };
 		1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */; };
 		1BF6DAE028CC639400A39EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BF6DADF28CC639400A39EBA /* Assets.xcassets */; };
@@ -29,6 +40,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B8F932C28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeacherCourseView + SetupUI.swift"; sourceTree = "<group>"; };
+		1B8F932E28E17D030021DCED /* ContactTelegramTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTelegramTableViewHeader.swift; sourceTree = "<group>"; };
+		1BD5F2DA28E31924007CC6E5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		1BD5F2DC28E31A01007CC6E5 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		1BD5F2DE28E38F58007CC6E5 /* TeacherCourseView + TableView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeacherCourseView + TableView Extension.swift"; sourceTree = "<group>"; };
+		1BD5F2E028E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCourseTableViewCell.swift; sourceTree = "<group>"; };
 		1BF6DAD328CC639300A39EBA /* TeacherScene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeacherScene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF6DAD628CC639300A39EBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,12 +74,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BD5F2D228E31547007CC6E5 /* FirebaseDatabaseSwift in Frameworks */,
+				1BD5F2D028E31547007CC6E5 /* FirebaseDatabase in Frameworks */,
+				1BD5F2D428E31547007CC6E5 /* FirebaseFirestore in Frameworks */,
+				1BD5F2D828E31547007CC6E5 /* FirebaseStorage in Frameworks */,
+				1BD5F2D628E31547007CC6E5 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BD5F2D928E3190D007CC6E5 /* NetServices */ = {
+			isa = PBXGroup;
+			children = (
+				1BD5F2DA28E31924007CC6E5 /* APIManager.swift */,
+			);
+			path = NetServices;
+			sourceTree = "<group>";
+		};
 		1BF6DACA28CC639300A39EBA = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +204,7 @@
 		1BF6DAF228CC663500A39EBA /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				1BD5F2DC28E31A01007CC6E5 /* DataModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -189,6 +220,7 @@
 		1BF6DAF428CC664B00A39EBA /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				1BD5F2D928E3190D007CC6E5 /* NetServices */,
 				1BF6DAF828CC67D600A39EBA /* TeacherCourseInteractor.swift */,
 			);
 			path = Interactor;
@@ -198,6 +230,10 @@
 			isa = PBXGroup;
 			children = (
 				1BF6DAF628CC67C400A39EBA /* TeacherCourseView.swift */,
+				1B8F932C28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift */,
+				1BD5F2E028E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift */,
+				1B8F932E28E17D030021DCED /* ContactTelegramTableViewHeader.swift */,
+				1BD5F2DE28E38F58007CC6E5 /* TeacherCourseView + TableView Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +254,13 @@
 			dependencies = (
 			);
 			name = TeacherScene;
+			packageProductDependencies = (
+				1BD5F2CF28E31547007CC6E5 /* FirebaseDatabase */,
+				1BD5F2D128E31547007CC6E5 /* FirebaseDatabaseSwift */,
+				1BD5F2D328E31547007CC6E5 /* FirebaseFirestore */,
+				1BD5F2D528E31547007CC6E5 /* FirebaseFirestoreSwift */,
+				1BD5F2D728E31547007CC6E5 /* FirebaseStorage */,
+			);
 			productName = TeacherScene;
 			productReference = 1BF6DAD328CC639300A39EBA /* TeacherScene.app */;
 			productType = "com.apple.product-type.application";
@@ -246,6 +289,9 @@
 				Base,
 			);
 			mainGroup = 1BF6DACA28CC639300A39EBA;
+			packageReferences = (
+				1BD5F2CE28E31546007CC6E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 1BF6DAD428CC639300A39EBA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,19 +319,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF6DAD728CC639300A39EBA /* AppDelegate.swift in Sources */,
+				1BD5F2DF28E38F58007CC6E5 /* TeacherCourseView + TableView Extension.swift in Sources */,
 				1BF6DB0F28CCADBF00A39EBA /* TeacherFeaturesCollectionView.swift in Sources */,
+				1B8F932D28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift in Sources */,
 				1BF6DB0728CC7ED600A39EBA /* TeacherCourseModuleBuilder.swift in Sources */,
 				1BF6DAFB28CC67E800A39EBA /* TeacherCoursePresenter.swift in Sources */,
 				1BF6DB1328CCAEB000A39EBA /* FeatureModel.swift in Sources */,
 				1BF6DAF728CC67C400A39EBA /* TeacherCourseView.swift in Sources */,
 				1BF6DB0D28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift in Sources */,
+				1B8F932F28E17D030021DCED /* ContactTelegramTableViewHeader.swift in Sources */,
 				1BF6DB0128CC682A00A39EBA /* TeacherPaywallPresenter.swift in Sources */,
 				1BF6DB0928CC8DDA00A39EBA /* NavigationBuilder.swift in Sources */,
 				1BF6DAFF28CC681700A39EBA /* TeacherPaywallView.swift in Sources */,
+				1BD5F2DB28E31924007CC6E5 /* APIManager.swift in Sources */,
 				1BF6DAF928CC67D600A39EBA /* TeacherCourseInteractor.swift in Sources */,
+				1BD5F2DD28E31A01007CC6E5 /* DataModel.swift in Sources */,
 				1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */,
 				1BF6DB0328CC683700A39EBA /* TeacherPaywallInteractor.swift in Sources */,
 				1BF6DB0528CC684400A39EBA /* TeacherPaywallRouter.swift in Sources */,
+				1BD5F2E128E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift in Sources */,
 				1BF6DB0B28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift in Sources */,
 				1BF6DAFD28CC67FC00A39EBA /* TeacherCourseRouter.swift in Sources */,
 				1BF6DB1128CCAE8900A39EBA /* TeacherFeaturesCell.swift in Sources */,
@@ -496,6 +548,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1BD5F2CE28E31546007CC6E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1BD5F2CF28E31547007CC6E5 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BD5F2CE28E31546007CC6E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		1BD5F2D128E31547007CC6E5 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BD5F2CE28E31546007CC6E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		1BD5F2D328E31547007CC6E5 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BD5F2CE28E31546007CC6E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		1BD5F2D528E31547007CC6E5 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BD5F2CE28E31546007CC6E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		1BD5F2D728E31547007CC6E5 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BD5F2CE28E31546007CC6E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1BF6DACB28CC639300A39EBA /* Project object */;
 }

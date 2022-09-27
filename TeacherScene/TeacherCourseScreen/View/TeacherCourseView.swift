@@ -9,6 +9,10 @@ import UIKit
 
 protocol TeacherCourseViewInput {
     var output: TeacherCourseViewOutput? { get set }
+    
+    var dataModel: DataModel? { get set }
+    
+    func updateDataSource(with dataModel: DataModel)
 }
 
 protocol TeacherCourseViewOutput {
@@ -16,24 +20,37 @@ protocol TeacherCourseViewOutput {
 }
 
 class TeacherCourseView: UIViewController, TeacherCourseViewInput {
+    
+    
 
     var output: TeacherCourseViewOutput?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    var dataModel: DataModel? {
+        didSet {
+            teacherCourseTableView.reloadData()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        setupNavigation()
+        
     }
-    */
+    
+    lazy var teacherCourseTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(TeacherCourseTableViewCell.self, forCellReuseIdentifier: TeacherCourseTableViewCell.reuseIdentifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
+    }()
+    
 
+    func updateDataSource(with dataModel: DataModel) {
+        self.dataModel = dataModel
+    }
+    
+    
 }

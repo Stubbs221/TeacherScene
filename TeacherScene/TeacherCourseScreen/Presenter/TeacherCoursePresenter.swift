@@ -32,15 +32,22 @@ class TeacherCoursePresenter {
         self.router = router
         
         
+        #warning("после инициализации зависимостей презентера мы вызываем метод сетевого слоя на подтягивание данных с дб")
+//        self.interactor.fetchData()
+        
     }
 }
 
 extension TeacherCoursePresenter: TeacherCourseInteractorOutput {
-    func interactorDidFetchDataFromDB(with result: Result<DataModel, Error>) {
-        switch result {
-            
-        }
+    func interactorDidFetchData(with success: DataModel) {
+        view.updateDataSource(with: success)
     }
+    
+    func interactorDidFetchData(with failure: Error) {
+        view.updateDataSource(with: failure)
+    }
+    
+    
     
     
 }

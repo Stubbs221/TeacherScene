@@ -16,6 +16,7 @@ struct Event {
     var eventDate: Date
     var haveRecordedBroadcast: Bool
     var homeTasks: [Task]
+    var isOpened: Bool = false
 }
 
 struct Task {

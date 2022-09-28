@@ -9,7 +9,13 @@ import UIKit
 
 extension TeacherCourseView {
     func setupUI() {
+        view.addSubview(teacherCourseTableView)
         
+        NSLayoutConstraint.activate([
+            teacherCourseTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            teacherCourseTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            teacherCourseTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            teacherCourseTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
     }
     
     func setupNavigation() {

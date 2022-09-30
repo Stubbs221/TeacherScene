@@ -16,6 +16,8 @@ class NavigationBuilder {
         let largeTextStyleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white]
         navigationController.navigationBar.largeTitleTextAttributes = largeTextStyleAttributes
+        
+        
         return navigationController
     }
 }

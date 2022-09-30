@@ -20,22 +20,25 @@ protocol TeacherCourseViewOutput {
     
 }
 
-class Section {
-    let title: String
-    let options: [String]
-    var isOpened: Bool = false
-    
-    init(title: String, options: [String], isOpened: Bool) {
-        self.title = title
-        self.options = options
-        self.isOpened = isOpened
-    }
-}
+//class Section {
+//    let title: String
+//    let options: [String]
+//    var isOpened: Bool = false
+//
+//    init(title: String, options: [String], isOpened: Bool) {
+//        self.title = title
+//        self.options = options
+//        self.isOpened = isOpened
+//    }
+//}
+
 class TeacherCourseView: UIViewController, TeacherCourseViewInput {
     
     
 
     var output: TeacherCourseViewOutput?
+    
+    var selectedIndex: IndexPath? = nil
     
     var dataModel: DataModel? {
         didSet {
@@ -47,6 +50,8 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
+        
+        
         setupUI()
         setupNavigation()
         
@@ -55,9 +60,18 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput {
     lazy var teacherCourseTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: TeacherCourseTableViewCell.reuseIdentifier)
+        tableView.register(TeacherCourseTableViewCell.self, forCellReuseIdentifier: TeacherCourseTableViewCell.reuseIdentifier)
+        tableView.register(ContactTelegramTableViewHeader.self, forHeaderFooterViewReuseIdentifier: ContactTelegramTableViewHeader.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = UIColor(named: "appBackgroundWhite")
+        tableView.separatorColor = .clear
+        tableView.showsVerticalScrollIndicator = false
+        if #available(iOS 15.0, *) {
+            tableView.sectionHeaderTopPadding = 0
+        } else {
+            // Fallback on earlier versions
+        }
         return tableView
     }()
     

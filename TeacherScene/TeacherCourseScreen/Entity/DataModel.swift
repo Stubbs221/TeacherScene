@@ -13,12 +13,14 @@ struct DataModel {
 
 struct Event {
     var eventName: String
-    var eventDate: Date
+    var eventDate: String
+    var eventTime: String
     var haveRecordedBroadcast: Bool
     var homeTasks: [Task]
     var isOpened: Bool = false
 }
 
 struct Task {
+    var taskNumber: Int
     var taskDescription: String
 }

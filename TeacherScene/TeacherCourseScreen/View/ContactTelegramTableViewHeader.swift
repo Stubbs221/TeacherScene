@@ -7,9 +7,8 @@
 
 import UIKit
 
-class ContactTelegramTableViewHeader: UITableViewHeaderFooterView {
+class ContactTelegramTableViewHeader: UIView {
 
-    static let reuseIdentifier = "ContactTelegramHeader"
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -48,48 +47,32 @@ class ContactTelegramTableViewHeader: UITableViewHeaderFooterView {
         return button
     }()
     
-    func configure(with text: String) {
-        
-//        contentView.backgroundColor = .cyan
-//        containerView.addSubview(telegramLabel)
-//        containerView.addSubview(contactWithTelegramButton)
-//
-//        NSLayoutConstraint.activate([
-//            telegramLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
-//            telegramLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15)])
-//        NSLayoutConstraint.activate([
-//            contactWithTelegramButton.leadingAnchor.constraint(equalTo: telegramLabel.leadingAnchor),
-//            contactWithTelegramButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15)])
-        
-        contentView.addSubview(telegramLabel)
-        telegramLabel.text = text
-        contentView.addSubview(contactWithTelegramButton)
-        
-        NSLayoutConstraint.activate([
-            telegramLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            telegramLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -60),
-            telegramLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12)])
-        
-        NSLayoutConstraint.activate([
-            contactWithTelegramButton.leadingAnchor.constraint(equalTo: telegramLabel.leadingAnchor),
-            contactWithTelegramButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)])
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure(with: "Телеграм-чат для связи с преподавателем ")
     }
-    
-//    override init(containerView: UIView, telegramLabel: UILabel, contactWithTelegramButton: UIButton) {
-//
-//        super.init(reuseIdentifier: self.reuseIdentifier)
-//        self.containerView = containerView
-//        self.telegramLabel = telegramLabel
-//        self.contactWithTelegramButton = contactWithTelegramButton
-//    }
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-    }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with text: String) {
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.heightAnchor.constraint(equalToConstant: 120).isActive = true
+
+        addSubview(telegramLabel)
+        telegramLabel.text = text
+        addSubview(contactWithTelegramButton)
+        
+        NSLayoutConstraint.activate([
+            telegramLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            telegramLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            telegramLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12)])
+        
+        NSLayoutConstraint.activate([
+            contactWithTelegramButton.leadingAnchor.constraint(equalTo: telegramLabel.leadingAnchor),
+            contactWithTelegramButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)])
     }
     
 }

@@ -58,20 +58,22 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput {
     }
     
     lazy var teacherCourseTableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(TeacherCourseTableViewCell.self, forCellReuseIdentifier: TeacherCourseTableViewCell.reuseIdentifier)
-        tableView.register(ContactTelegramTableViewHeader.self, forHeaderFooterViewReuseIdentifier: ContactTelegramTableViewHeader.reuseIdentifier)
+        tableView.register(TeacherCourseTableViewSectionHeader.self, forHeaderFooterViewReuseIdentifier: TeacherCourseTableViewSectionHeader.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableHeaderView = ContactTelegramTableViewHeader()
+        
         tableView.backgroundColor = UIColor(named: "appBackgroundWhite")
         tableView.separatorColor = .clear
         tableView.showsVerticalScrollIndicator = false
-        if #available(iOS 15.0, *) {
-            tableView.sectionHeaderTopPadding = 0
-        } else {
-            // Fallback on earlier versions
-        }
+//        if #available(iOS 15.0, *) {
+//            tableView.sectionHeaderTopPadding = 120
+//        } else {
+//            // Fallback on earlier versions
+//        }
         return tableView
     }()
     

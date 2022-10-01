@@ -111,23 +111,89 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
 //  MARK: Вью с заданием
     
     
-    private var taskView: UIView = {
+    private var taskView1: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 175).isActive = true
+        view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 32).isActive = true
         return view
     }()
     
+    private var taskNumberLabel1: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
+        label.text = "Задание 1"
+        label.textColor = UIColor(named: "appVioletColor")
+        return label
+    }()
     
+    private var taskDescriptionLabel1: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
     
+    private var openTaskButton1: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(named: "appVioletColor")
+        button.setTitle("Выполнить задание", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowOffset = CGSize(width: 3, height: 3)
+        return button
+    }()
     
+    private var taskView2: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 175).isActive = true
+        view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 32).isActive = true
+        return view
+    }()
     
+    private var taskNumberLabel2: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
+        label.text = "Задание 2"
+        label.textColor = UIColor(named: "appVioletColor")
+        return label
+    }()
     
-        
+    private var taskDescriptionLabel2: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    
+    private var openTaskButton2: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(named: "appVioletColor")
+        button.setTitle("Выполнить задание", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowOffset = CGSize(width: 3, height: 3)
+        return button
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -145,16 +211,22 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
     }
     
     func setupUI() {
-//        contentView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-//        contentView.widthAnchor.constraint(equalToConstant: 250).isActive = true
-//        contentView.translatesAutoresizingMaskIntoConstraints = false
-//        contentView.layer.cornerRadius = 18
-//        contentView.clipsToBounds = true
+
         contentView.backgroundColor = UIColor(named: "appBackgroundWhite")
         contentView.addSubview(baseView)
         
         baseView.addSubview(eventView)
         eventView.addSubview(lessonInfoView)
+        eventView.addSubview(taskView1)
+        eventView.addSubview(taskView2)
+        
+        taskView1.addSubview(taskNumberLabel1)
+        taskView1.addSubview(taskDescriptionLabel1)
+        taskView1.addSubview(openTaskButton1)
+        
+        taskView2.addSubview(taskNumberLabel2)
+        taskView2.addSubview(taskDescriptionLabel2)
+        taskView2.addSubview(openTaskButton2)
         
         lessonInfoView.addSubview(lessonImageView)
         lessonInfoView.addSubview(separatorForLessonInfoView)
@@ -165,6 +237,9 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         lessonInfoView.addSubview(contentDescriptionLabel)
         lessonInfoView.addSubview(expandeCellButton)
         lessonInfoView.addSubview(estimatedTimeLabel)
+        
+        
+
         
         NSLayoutConstraint.activate([
             baseView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -225,6 +300,52 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
             estimatedTimeLabel.trailingAnchor.constraint(equalTo: expandeCellButton.leadingAnchor, constant: -8),
             estimatedTimeLabel.bottomAnchor.constraint(equalTo: contentDescriptionLabel.bottomAnchor)
         ])
+        
+        NSLayoutConstraint.activate([
+            taskView1.centerXAnchor.constraint(equalTo: eventView.centerXAnchor),
+            taskView1.topAnchor.constraint(equalTo: lessonInfoView.bottomAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            taskNumberLabel1.leadingAnchor.constraint(equalTo: taskView1.leadingAnchor, constant: 22),
+            taskNumberLabel1.topAnchor.constraint(equalTo: taskView1.topAnchor, constant: 27)])
+        
+        NSLayoutConstraint.activate([
+            taskDescriptionLabel1.leadingAnchor.constraint(equalTo: taskNumberLabel1.leadingAnchor),
+            taskDescriptionLabel1.topAnchor.constraint(equalTo: taskNumberLabel1.bottomAnchor, constant: 10),
+            taskDescriptionLabel1.widthAnchor.constraint(equalToConstant: 300)])
+        
+        NSLayoutConstraint.activate([
+            openTaskButton1.leadingAnchor.constraint(equalTo: taskDescriptionLabel1.leadingAnchor),
+            openTaskButton1.trailingAnchor.constraint(equalTo: taskView1.trailingAnchor, constant: -22),
+            openTaskButton1.bottomAnchor.constraint(equalTo: taskView1.bottomAnchor, constant: -14),
+            openTaskButton1.heightAnchor.constraint(equalToConstant: 47)
+        ])
+        
+        NSLayoutConstraint.activate([
+            taskView2.centerXAnchor.constraint(equalTo: eventView.centerXAnchor),
+            taskView2.topAnchor.constraint(equalTo: taskView1.bottomAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            taskNumberLabel2.leadingAnchor.constraint(equalTo: taskView2.leadingAnchor, constant: 22),
+            taskNumberLabel2.topAnchor.constraint(equalTo: taskView2.topAnchor, constant: 27)])
+        
+        NSLayoutConstraint.activate([
+            taskDescriptionLabel2.leadingAnchor.constraint(equalTo: taskNumberLabel2.leadingAnchor),
+            taskDescriptionLabel2.topAnchor.constraint(equalTo: taskNumberLabel2.bottomAnchor, constant: 10),
+            taskDescriptionLabel2.widthAnchor.constraint(equalToConstant: 300)])
+        
+        NSLayoutConstraint.activate([
+            openTaskButton2.leadingAnchor.constraint(equalTo: taskDescriptionLabel2.leadingAnchor),
+            openTaskButton2.trailingAnchor.constraint(equalTo: taskView2.trailingAnchor, constant: -22),
+            openTaskButton2.bottomAnchor.constraint(equalTo: taskView2.bottomAnchor, constant: -14),
+            openTaskButton2.heightAnchor.constraint(equalToConstant: 47)
+        ])
+        
+//                NSLayoutConstraint.activate([
+//                    taskView.leadingAnchor.constraint(equalTo: lessonInfoView.leadingAnchor),
+//                    taskView.trailingAnchor.constraint(equalTo: lessonInfoView.trailingAnchor),
+//                    taskView.topAnchor.constraint(equalTo: lessonInfoView.bottomAnchor)
+//                    ])
     }
     
     func configureCell(with data: Event) {
@@ -241,15 +362,11 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         self.contentDescriptionLabel.textColor = data.haveRecordedBroadcast ? UIColor.white : UIColor(named: "appVioletColor")
         self.estimatedTimeLabel.textColor = data.haveRecordedBroadcast ? UIColor.white : UIColor.systemGray3
         self.expandeCellButton.setImage(UIImage(named: data.haveRecordedBroadcast ? "arrowWhite" : "arrowBlack"), for: .normal)
-        
+        self.taskDescriptionLabel1.text = data.homeTasks[0].taskDescription
+        self.taskDescriptionLabel2.text = data.homeTasks[1].taskDescription
 //        конфигурируем блок с заданиями
-        let taskViews = configureTasksContentView(from: data.homeTasks)
-        eventView.addSubview(taskViews)
-        NSLayoutConstraint.activate([
-            taskViews.leadingAnchor.constraint(equalTo: lessonInfoView.leadingAnchor),
-            taskViews.trailingAnchor.constraint(equalTo: lessonInfoView.trailingAnchor),
-            taskViews.topAnchor.constraint(equalTo: lessonInfoView.bottomAnchor)
-            ])
+        
+        
         
         
     }
@@ -259,195 +376,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
             self.contentView.layoutIfNeeded()
         }
     }
-    
-    
 
-    func configureTasksContentView(from tasks: [Task]) -> UIView {
-//        родительское вью для задач
-        var view = UIView()
-        
-        
-        switch tasks.count {
-        case 0:
-            view = configureTasksContentViewWithZeroElements()
-        case ..<3:
-            view = configureTasksContentViewWithLessThan3(elements: tasks)
-        case 3...:
-            view = configureTasksContentViewWithMoreThan2(elements: tasks)
-        default:
-            print(tasks.count)
-            fatalError()
-        }
-        return view
-    }
-    
-    private func configureTasksContentViewWithZeroElements() -> UIView {
-//        если задач для урока нет
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 175).isActive = true
-        
-        var descriptionLabel: UILabel = {
-            let label = UILabel()
-            label.text = "Этот урок не включает в себя задания"
-            label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-            return label
-        }()
-        view.addSubview(descriptionLabel)
-        descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        descriptionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        return view
-    }
-    
-    private func configureTasksContentViewWithLessThan3(elements: [Task]) -> UIView {
-//        если задач для урока < 3
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: CGFloat(175 * elements.count)).isActive = true
-        
-        for (i, element) in elements.enumerated() {
-            view.addSubview(configureTaskView(from: element))
-            view.subviews[i].topAnchor.constraint(equalTo: i == 0 ? view.topAnchor : view.subviews[i - 1].bottomAnchor).isActive = true
-        }
-        return view
-    }
-    
-    private func configureTasksContentViewWithMoreThan2(elements: [Task]) -> UIView {
-//        если задач для урока  > 2
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 350).isActive = true
-        
-        
-        
-        var scrollView: UIScrollView = {
-            let scrollView = UIScrollView()
-            scrollView.delegate = self
-            scrollView.translatesAutoresizingMaskIntoConstraints = false
-            
-            
-            
-//            scrollView.showsVerticalScrollIndicator = false
-            return scrollView
-        }()
-        
-        var contentView: UIView = {
-            let view = UIView()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.heightAnchor.constraint(equalToConstant: 1000).isActive = true
-            view.widthAnchor.constraint(equalToConstant: 1000).isActive = true
-            return view
-        }()
-        
-        var stackView: UIStackView = {
-            let stackView = UIStackView()
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            
-            stackView.axis = .vertical
-            stackView.spacing = -50
-            return stackView
-        }()
-        
-        for element in elements {
-            let taskView = configureTaskView(from: element)
-//            taskView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//            taskView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-            stackView.addArrangedSubview(taskView)
-            
-        }
-        
-        scrollView.contentSize = CGSize(width: 1000, height: 1000)
-        
-        view.addSubview(scrollView)
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        scrollView.contentSize = stackView.frame.size
-        
-        scrollView.addSubview(contentView)
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        contentView.heightAnchor.constraint(equalToConstant: CGFloat(175 * elements.count)).isActive = true
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        contentView.backgroundColor = .blue
-        contentView.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-
-        stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        
-        return view
-    }
-    
-    func configureTaskView(from task: Task) -> UIView {
-//
-        #warning("уточнить в каком виде должны быть представлены задачи")
-        
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 175).isActive = true
-        view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width).isActive = true
-        
-        view.backgroundColor = .cyan
-        let taskNumberLabel = makeTaskNumberLabel(with: task.taskNumber)
-        let taskDescriptionLabel = makeTaskDescriotionLabel(with: task.taskDescription)
-        let openTaskButton = makeOpenTaskButton()
-        
-        view.addSubview(taskNumberLabel)
-        view.addSubview(taskDescriptionLabel)
-        view.addSubview(openTaskButton)
-        
-        NSLayoutConstraint.activate([
-            taskNumberLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
-            taskNumberLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 33)])
-        
-        NSLayoutConstraint.activate([
-            taskDescriptionLabel.leadingAnchor.constraint(equalTo: taskNumberLabel.leadingAnchor),
-            taskDescriptionLabel.topAnchor.constraint(equalTo: taskNumberLabel.bottomAnchor, constant: 10)])
-        
-        NSLayoutConstraint.activate([
-            openTaskButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            openTaskButton.topAnchor.constraint(equalTo: taskDescriptionLabel.bottomAnchor, constant: 14)
-        ])
-        
-        return view
-    }
-    
-    private func makeTaskNumberLabel(with number: Int) -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
-        label.text = "Задание " + String(number)
-        label.textColor = UIColor(named: "appVioletColor")
-        return label
-    }
-    
-    private func makeTaskDescriotionLabel(with description: String) -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
-        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        return label
-    }
-    
-    private func makeOpenTaskButton() -> UIButton {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "appVioletColor")
-        button.setTitle("Выполнить задание", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.shadowRadius = 8
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.6
-        button.layer.shadowOffset = CGSize(width: 3, height: 3)
-        return button
-    }
-    
     @objc func expandCellButtonPressed() {
         #warning("чо тут делоть тооо")
     }

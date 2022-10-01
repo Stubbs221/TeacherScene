@@ -13,6 +13,7 @@ class NavigationBuilder {
     static func build(rootView: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: rootView)
         navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.barStyle = .black
         let largeTextStyleAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white]
         navigationController.navigationBar.largeTitleTextAttributes = largeTextStyleAttributes

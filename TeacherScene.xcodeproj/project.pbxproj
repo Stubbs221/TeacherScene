@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B8F932D28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F932C28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift */; };
 		1B8F932F28E17D030021DCED /* ContactTelegramTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F932E28E17D030021DCED /* ContactTelegramTableViewHeader.swift */; };
+		1BCEAB7828E8CB2300FC9821 /* TeacherCourseTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEAB7728E8CB2300FC9821 /* TeacherCourseTableViewSectionHeader.swift */; };
 		1BD5F2D028E31547007CC6E5 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD5F2CF28E31547007CC6E5 /* FirebaseDatabase */; };
 		1BD5F2D228E31547007CC6E5 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD5F2D128E31547007CC6E5 /* FirebaseDatabaseSwift */; };
 		1BD5F2D428E31547007CC6E5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1BD5F2D328E31547007CC6E5 /* FirebaseFirestore */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		1B8F932C28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeacherCourseView + SetupUI.swift"; sourceTree = "<group>"; };
 		1B8F932E28E17D030021DCED /* ContactTelegramTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTelegramTableViewHeader.swift; sourceTree = "<group>"; };
+		1BCEAB7728E8CB2300FC9821 /* TeacherCourseTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCourseTableViewSectionHeader.swift; sourceTree = "<group>"; };
 		1BD5F2DA28E31924007CC6E5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		1BD5F2DC28E31A01007CC6E5 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		1BD5F2DE28E38F58007CC6E5 /* TeacherCourseView + TableView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeacherCourseView + TableView Extension.swift"; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				1BD5F2E028E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift */,
 				1B8F932E28E17D030021DCED /* ContactTelegramTableViewHeader.swift */,
 				1BD5F2DE28E38F58007CC6E5 /* TeacherCourseView + TableView Extension.swift */,
+				1BCEAB7728E8CB2300FC9821 /* TeacherCourseTableViewSectionHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				1BF6DAFF28CC681700A39EBA /* TeacherPaywallView.swift in Sources */,
 				1BD5F2E628E6D8E3007CC6E5 /* UIButton+UIImageExtension.swift in Sources */,
 				1BD5F2DB28E31924007CC6E5 /* APIManager.swift in Sources */,
+				1BCEAB7828E8CB2300FC9821 /* TeacherCourseTableViewSectionHeader.swift in Sources */,
 				1BF6DAF928CC67D600A39EBA /* TeacherCourseInteractor.swift in Sources */,
 				1BD5F2DD28E31A01007CC6E5 /* DataModel.swift in Sources */,
 				1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */,

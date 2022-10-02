@@ -20,17 +20,6 @@ protocol TeacherCourseViewOutput {
     
 }
 
-//class Section {
-//    let title: String
-//    let options: [String]
-//    var isOpened: Bool = false
-//
-//    init(title: String, options: [String], isOpened: Bool) {
-//        self.title = title
-//        self.options = options
-//        self.isOpened = isOpened
-//    }
-//}
 
 class TeacherCourseView: UIViewController, TeacherCourseViewInput {
     
@@ -39,6 +28,8 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput {
     var output: TeacherCourseViewOutput?
     
     var selectedIndex: IndexPath? = nil
+    
+    let sections = ["Ближайшая трансляция", "Учебный план"]
     
     var dataModel: DataModel? {
         didSet {
@@ -64,7 +55,11 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput {
         tableView.register(TeacherCourseTableViewSectionHeader.self, forHeaderFooterViewReuseIdentifier: TeacherCourseTableViewSectionHeader.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        
+        
         tableView.tableHeaderView = ContactTelegramTableViewHeader()
+        
+        
         
         tableView.backgroundColor = UIColor(named: "appBackgroundWhite")
         tableView.separatorColor = .clear

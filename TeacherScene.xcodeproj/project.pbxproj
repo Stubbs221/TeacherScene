@@ -21,6 +21,7 @@
 		1BD5F2E128E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2E028E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift */; };
 		1BD5F2E628E6D8E3007CC6E5 /* UIButton+UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2E428E6D8E3007CC6E5 /* UIButton+UIImageExtension.swift */; };
 		1BD5F2E728E6D8E3007CC6E5 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2E528E6D8E3007CC6E5 /* UIColorExtensions.swift */; };
+		1BE9777828E9C2A20063B93E /* DataModelFromFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9777728E9C2A20063B93E /* DataModelFromFB.swift */; };
 		1BF6DAD728CC639300A39EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD628CC639300A39EBA /* AppDelegate.swift */; };
 		1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */; };
 		1BF6DAE028CC639400A39EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BF6DADF28CC639400A39EBA /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		1BD5F2E028E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCourseTableViewCell.swift; sourceTree = "<group>"; };
 		1BD5F2E428E6D8E3007CC6E5 /* UIButton+UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+UIImageExtension.swift"; sourceTree = "<group>"; };
 		1BD5F2E528E6D8E3007CC6E5 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		1BE9777728E9C2A20063B93E /* DataModelFromFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelFromFB.swift; sourceTree = "<group>"; };
 		1BF6DAD328CC639300A39EBA /* TeacherScene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeacherScene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF6DAD628CC639300A39EBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				1BD5F2DC28E31A01007CC6E5 /* DataModel.swift */,
+				1BE9777728E9C2A20063B93E /* DataModelFromFB.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				1BF6DB1328CCAEB000A39EBA /* FeatureModel.swift in Sources */,
 				1BF6DAF728CC67C400A39EBA /* TeacherCourseView.swift in Sources */,
 				1BF6DB0D28CCA8E800A39EBA /* TeaherPaywallView + SetupUI.swift in Sources */,
+				1BE9777828E9C2A20063B93E /* DataModelFromFB.swift in Sources */,
 				1BD5F2E728E6D8E3007CC6E5 /* UIColorExtensions.swift in Sources */,
 				1B8F932F28E17D030021DCED /* ContactTelegramTableViewHeader.swift in Sources */,
 				1BF6DB0128CC682A00A39EBA /* TeacherPaywallPresenter.swift in Sources */,

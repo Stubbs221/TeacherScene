@@ -13,6 +13,8 @@ class TeacherCourseTableViewSectionHeader: UITableViewHeaderFooterView {
     
     lazy var sectionLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
@@ -25,14 +27,15 @@ class TeacherCourseTableViewSectionHeader: UITableViewHeaderFooterView {
     }
     
     func configureSectionHeader(with title: String) {
-        backgroundColor = .cyan
-        contentView.backgroundColor = .cyan
+        
         contentView.addSubview(sectionLabel)
-        contentView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         contentView.widthAnchor.constraint(equalToConstant:  UIScreen.main.bounds.size.width).isActive = true
         
         NSLayoutConstraint.activate([
-            sectionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            sectionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             sectionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
             ])
         

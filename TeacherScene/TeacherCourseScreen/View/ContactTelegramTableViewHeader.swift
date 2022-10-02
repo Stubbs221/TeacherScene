@@ -13,7 +13,7 @@ class ContactTelegramTableViewHeader: UIView {
     lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        view.heightAnchor.constraint(equalToConstant: 140).isActive = true
         return view
     }()
     
@@ -22,6 +22,7 @@ class ContactTelegramTableViewHeader: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        label.widthAnchor.constraint(equalToConstant: 250).isActive = true
         label.numberOfLines = 2
         label.textColor = .black
         return label

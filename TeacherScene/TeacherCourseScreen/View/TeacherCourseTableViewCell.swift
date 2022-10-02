@@ -7,9 +7,17 @@
 
 import UIKit
 
+protocol TeacherCourseTableViewCellDelegate: AnyObject {
+    func teacherCourseTableViewCell(_ teacherCourseTableViewCell: TeacherCourseTableViewCell, expandButtonTappedFor index: IndexPath)
+}
+
 class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
 
     static let reuseIdentifier = "TeacherCourseCell"
+    
+    var index: IndexPath?
+    
+    weak var delegate: TeacherCourseTableViewCellDelegate?
     
     private var baseView: UIView = {
         let view = UIView()
@@ -18,6 +26,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         view.layer.shadowOffset = CGSize(width: 1, height: 1)
         view.layer.shadowRadius = 4
         view.layer.shadowOpacity = 0.2
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -27,20 +36,18 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         view.layer.cornerRadius = 20
         view.backgroundColor = .white
         view.layer.masksToBounds = true
-        
+        view.isUserInteractionEnabled = true
         return view
     }()
     
     private var lessonInfoView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.masksToBounds = true
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 1, height: 1)
         view.layer.shadowRadius = 6
         view.layer.shadowOpacity = 0.2
-//        view.clipsToBounds = true
-        
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -98,13 +105,13 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         return label
     }()
     
-    private var expandeCellButton: UIButton = {
+    lazy var expandeCellButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(equalToConstant: 15).isActive = true
         button.widthAnchor.constraint(equalToConstant: 15).isActive = true
         button.imageView?.contentMode = .scaleAspectFit
-        button.addTarget(self, action: #selector(expandCellButtonPressed), for: .touchUpInside)
+        
         return button
     }()
     
@@ -202,6 +209,8 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -214,6 +223,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
 
         contentView.backgroundColor = UIColor(named: "appBackgroundWhite")
         contentView.addSubview(baseView)
+        
         
         baseView.addSubview(eventView)
         eventView.addSubview(lessonInfoView)
@@ -235,7 +245,8 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         lessonInfoView.addSubview(timeLabel)
         lessonInfoView.addSubview(descriptionLabel)
         lessonInfoView.addSubview(contentDescriptionLabel)
-        lessonInfoView.addSubview(expandeCellButton)
+        contentView.addSubview(expandeCellButton)
+        self.expandeCellButton.addTarget(self, action: #selector(expandCellButtonPressed(_:)), for: .touchUpInside)
         lessonInfoView.addSubview(estimatedTimeLabel)
         
         
@@ -341,11 +352,6 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
             openTaskButton2.heightAnchor.constraint(equalToConstant: 47)
         ])
         
-//                NSLayoutConstraint.activate([
-//                    taskView.leadingAnchor.constraint(equalTo: lessonInfoView.leadingAnchor),
-//                    taskView.trailingAnchor.constraint(equalTo: lessonInfoView.trailingAnchor),
-//                    taskView.topAnchor.constraint(equalTo: lessonInfoView.bottomAnchor)
-//                    ])
     }
     
     func configureCell(with data: Event) {
@@ -362,9 +368,9 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         self.contentDescriptionLabel.textColor = data.haveRecordedBroadcast ? UIColor.white : UIColor(named: "appVioletColor")
         self.estimatedTimeLabel.textColor = data.haveRecordedBroadcast ? UIColor.white : UIColor.systemGray3
         self.expandeCellButton.setImage(UIImage(named: data.haveRecordedBroadcast ? "arrowWhite" : "arrowBlack"), for: .normal)
+        self.expandeCellButton.addTarget(self, action: #selector(expandCellButtonPressed(_:)), for: .touchUpInside)
         self.taskDescriptionLabel1.text = data.homeTasks[0].taskDescription
         self.taskDescriptionLabel2.text = data.homeTasks[1].taskDescription
-//        конфигурируем блок с заданиями
         
         
         
@@ -377,7 +383,11 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         }
     }
 
-    @objc func expandCellButtonPressed() {
-        #warning("чо тут делоть тооо")
+    @objc func expandCellButtonPressed(_ sender: UIButton) {
+//        sender.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2.0)
+        if let delegate = delegate,
+            let index = index{
+            delegate.teacherCourseTableViewCell(self, expandButtonTappedFor: index)
+        }
     }
 }

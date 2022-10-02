@@ -12,6 +12,7 @@ struct DataModel {
 }
 
 struct Event {
+    
     var eventName: String
     var eventDate: String
     var eventTime: String

@@ -7,7 +7,54 @@
 
 import UIKit
 
+extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
+    func teacherCourseTableViewCell(_ teacherCourseTableViewCell: TeacherCourseTableViewCell, expandButtonTappedFor index: IndexPath) {
+        defer {
+            teacherCourseTableView.scrollToRow(at: index, at: .top, animated: true)
+        }
+
+        guard let selectedIndex = selectedIndex else {
+            self.selectedIndex = index
+            teacherCourseTableView.beginUpdates()
+            
+            
+            
+            teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
+            UIView.animate(withDuration: 2) {
+                teacherCourseTableViewCell.expandeCellButton.imageView?.image?.imageRotated(on: 180)
+            }
+            teacherCourseTableView.endUpdates()
+            return
+        }
+
+
+        if self.selectedIndex == index {
+            self.selectedIndex = nil
+
+            teacherCourseTableView.beginUpdates()
+            teacherCourseTableView.reloadRows(at: [], with: .none)
+            UIView.animate(withDuration: 0.25) {
+                teacherCourseTableViewCell.expandeCellButton.imageView?.image?.imageRotated(on: 180)
+            }
+            teacherCourseTableView.endUpdates()
+        } else {
+            self.selectedIndex = index
+            teacherCourseTableView.beginUpdates()
+            
+            teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
+            UIView.animate(withDuration: 2) {
+                teacherCourseTableViewCell.expandeCellButton.imageView?.image?.imageRotated(on: 180)
+            }
+            teacherCourseTableView.endUpdates()
+        }
+    }
+
+
+}
+
 extension TeacherCourseView: UITableViewDelegate, UITableViewDataSource {
+ 
+    
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -18,26 +65,18 @@ extension TeacherCourseView: UITableViewDelegate, UITableViewDataSource {
         }
         return rowHeight
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         2
 
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        switch section {
-//        case 0:
-//            return "Ближайшая трансляция"
-//        case 1:
-//            return "Учебный план"
-//        default:
-//            return ""
-//        }
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         guard let dataModel = self.dataModel else { return 0 }
-        return dataModel.events.count
+        
+        return section == 0 ? 1 : dataModel.events.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,38 +84,14 @@ extension TeacherCourseView: UITableViewDelegate, UITableViewDataSource {
               let dataModel = dataModel else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.configureCell(with: dataModel.events[indexPath.row])
-        
+        cell.delegate = self
+        cell.index = indexPath
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        defer {
-            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        }
-       
-        guard let selectedIndex = selectedIndex else {
-            selectedIndex = indexPath
-            tableView.beginUpdates()
-            tableView.reloadRows(at: [selectedIndex!], with: .none)
-            tableView.endUpdates()
-            return
-        }
         
-        
-        if self.selectedIndex == indexPath {
-            self.selectedIndex = nil
-            
-            tableView.beginUpdates()
-            tableView.reloadRows(at: [], with: .none)
-            tableView.endUpdates()
-        } else {
-            self.selectedIndex = indexPath
-            tableView.beginUpdates()
-            tableView.reloadRows(at: [self.selectedIndex!], with: .none)
-            tableView.endUpdates()
-        }
-          
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

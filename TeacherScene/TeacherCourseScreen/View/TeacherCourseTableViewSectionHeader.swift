@@ -30,9 +30,9 @@ class TeacherCourseTableViewSectionHeader: UITableViewHeaderFooterView {
         
         contentView.addSubview(sectionLabel)
         
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        contentView.widthAnchor.constraint(equalToConstant:  UIScreen.main.bounds.size.width).isActive = true
+//        contentView.translatesAutoresizingMaskIntoConstraints = false
+//        contentView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        contentView.widthAnchor.constraint(equalToConstant:  UIScreen.main.bounds.size.width).isActive = true
         
         NSLayoutConstraint.activate([
             sectionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),

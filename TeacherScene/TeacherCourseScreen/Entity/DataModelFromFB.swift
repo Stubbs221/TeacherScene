@@ -12,6 +12,7 @@ struct DataModelFB {
 }
 
 struct EventFB {
+    
     var eventName: String
     var eventDate: Date
     var haveRecordedBroadcast: Bool

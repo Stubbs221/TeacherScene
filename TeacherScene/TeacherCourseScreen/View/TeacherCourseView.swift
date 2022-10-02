@@ -27,7 +27,7 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput {
 
     var output: TeacherCourseViewOutput?
     
-    var selectedIndex: IndexPath? = nil
+    var selectedIndex: IndexPath?
     
     let sections = ["Ближайшая трансляция", "Учебный план"]
     
@@ -55,7 +55,7 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput {
         tableView.register(TeacherCourseTableViewSectionHeader.self, forHeaderFooterViewReuseIdentifier: TeacherCourseTableViewSectionHeader.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.allowsSelection = false
         
         tableView.tableHeaderView = ContactTelegramTableViewHeader()
         

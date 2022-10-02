@@ -44,7 +44,7 @@ extension TeacherCoursePresenter: TeacherCourseInteractorOutput {
         
         var dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-dd/MM HH:mm:ss"
         
         for event in success.events {
             if let timeZone = TimeZone(abbreviation: "MSK") {
@@ -52,12 +52,12 @@ extension TeacherCoursePresenter: TeacherCourseInteractorOutput {
                 let date = dateFormatter.string(from: changeToSystemTimeZone(dateFromFB, from: timeZone))
                 let eventDate = String(
                     date[
-                        date.index(date.startIndex, offsetBy: 6)...date.index(date.startIndex, offsetBy: 10)
+                        date.index(date.startIndex, offsetBy: 5)...date.index(date.startIndex, offsetBy: 9)
                     ]
                 )
                 let eventTime = String(
                     date[
-                        date.index(date.startIndex, offsetBy: 12)...date.index(date.startIndex, offsetBy: 16)
+                        date.index(date.startIndex, offsetBy: 11)...date.index(date.startIndex, offsetBy: 15)
                     ]
                 )
                 
@@ -65,6 +65,12 @@ extension TeacherCoursePresenter: TeacherCourseInteractorOutput {
                 
                 dataModelForView.events.append(Event(eventName: event.eventName, eventDate: eventDate, eventTime: eventTime, haveRecordedBroadcast: event.haveRecordedBroadcast, homeTasks: event.homeTasks))
             }
+        }
+        
+        dateFormatter.dateFormat = "dd/MM"
+        
+        dataModelForView.events.sort { (leftElement, rightElement) in
+            dateFormatter.date(from: leftElement.eventDate) ?? Date.distantPast < dateFormatter.date(from: rightElement.eventDate) ?? Date.distantPast
         }
         
         view.updateDataSource(with: dataModelForView)

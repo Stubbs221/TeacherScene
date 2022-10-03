@@ -9,6 +9,8 @@ import UIKit
 
 protocol TeacherCourseTableViewCellDelegate: AnyObject {
     func teacherCourseTableViewCell(_ teacherCourseTableViewCell: TeacherCourseTableViewCell, expandButtonTappedFor index: IndexPath)
+    
+    func taskButtonTappedFor(cell indexPath: IndexPath, taskIndex: Int)
 }
 
 class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
@@ -19,39 +21,39 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
     
     weak var delegate: TeacherCourseTableViewCellDelegate?
     
-    private var baseView: UIView = {
+    lazy var baseView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 1, height: 1)
         view.layer.shadowRadius = 4
         view.layer.shadowOpacity = 0.2
-        view.isUserInteractionEnabled = true
+        view.isUserInteractionEnabled = false
         return view
     }()
     
-    private var eventView: UIView = {
+    lazy var eventView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 20
         view.backgroundColor = .white
         view.layer.masksToBounds = true
-        view.isUserInteractionEnabled = true
+        view.isUserInteractionEnabled = false
         return view
     }()
     
-    private var lessonInfoView: UIView = {
+    lazy var lessonInfoView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 1, height: 1)
         view.layer.shadowRadius = 6
         view.layer.shadowOpacity = 0.2
-        view.isUserInteractionEnabled = true
+        view.isUserInteractionEnabled = false
         return view
     }()
     
-    private var lessonImageView: UIImageView = {
+    lazy var lessonImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "taskMockImage")
@@ -61,7 +63,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         return imageView
     }()
     
-    private var separatorForLessonInfoView: UIView = {
+    lazy var separatorForLessonInfoView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalToConstant: 1).isActive = true
@@ -69,21 +71,21 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         return view
     }()
     
-    private var dateLabel: UILabel = {
+    lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return label
     }()
     
-    private var timeLabel: UILabel = {
+    lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return label
     }()
     
-    private var descriptionLabel: UILabel = {
+    lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
@@ -91,14 +93,14 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         return label
     }()
     
-    private var contentDescriptionLabel: UILabel = {
+    lazy var contentDescriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
-    private var estimatedTimeLabel: UILabel = {
+    lazy var estimatedTimeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14)
@@ -111,22 +113,24 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         button.heightAnchor.constraint(equalToConstant: 15).isActive = true
         button.widthAnchor.constraint(equalToConstant: 15).isActive = true
         button.imageView?.contentMode = .scaleAspectFit
-        
+        button.isUserInteractionEnabled = true
+        button.imageView?.isUserInteractionEnabled = true
         return button
     }()
     
 //  MARK: Вью с заданием
     
     
-    private var taskView1: UIView = {
+    lazy var taskView1: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 175).isActive = true
         view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 32).isActive = true
+        view.isUserInteractionEnabled = false
         return view
     }()
     
-    private var taskNumberLabel1: UILabel = {
+    lazy var taskNumberLabel1: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
@@ -135,15 +139,17 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         return label
     }()
     
-    private var taskDescriptionLabel1: UILabel = {
+    lazy var taskDescriptionLabel1: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         return label
     }()
     
-    private var openTaskButton1: UIButton = {
+    #warning("этот баттн не обрабатывается")
+    lazy var openTaskButton1: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: "appVioletColor")
@@ -154,18 +160,22 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.2
         button.layer.shadowOffset = CGSize(width: 3, height: 3)
+        button.isUserInteractionEnabled = true
+//        button.isHidden = true
+//        button.isEnabled = false
         return button
     }()
     
-    private var taskView2: UIView = {
+    lazy var taskView2: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 175).isActive = true
         view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 32).isActive = true
+        view.isUserInteractionEnabled = false
         return view
     }()
     
-    private var taskNumberLabel2: UILabel = {
+    lazy var taskNumberLabel2: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 23, weight: .bold)
@@ -174,15 +184,17 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         return label
     }()
     
-    private var taskDescriptionLabel2: UILabel = {
+    lazy var taskDescriptionLabel2: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         return label
     }()
     
-    private var openTaskButton2: UIButton = {
+#warning(" и этот баттн не обрабатывается")
+    lazy var openTaskButton2: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: "appVioletColor")
@@ -193,12 +205,20 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.2
         button.layer.shadowOffset = CGSize(width: 3, height: 3)
+        button.isUserInteractionEnabled = true
+        button.isHighlighted = true
+//        button.isSelected = true
+//        button.isHidden = true
+//        button.isEnabled = false
         return button
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+//        self.contentView.isUserInteractionEnabled = false
+//        self.isUserInteractionEnabled = false
         setupUI()
+        
     }
     
     
@@ -213,11 +233,11 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//
+//        // Configure the view for the selected state
+//    }
     
     func setupUI() {
 
@@ -233,10 +253,13 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         taskView1.addSubview(taskNumberLabel1)
         taskView1.addSubview(taskDescriptionLabel1)
         taskView1.addSubview(openTaskButton1)
+        #warning("тут ставится им экшн")
+        self.openTaskButton1.addTarget(taskView1, action: #selector(openTaskButton1Pressed), for: .touchUpInside)
         
         taskView2.addSubview(taskNumberLabel2)
         taskView2.addSubview(taskDescriptionLabel2)
         taskView2.addSubview(openTaskButton2)
+        self.openTaskButton1.addTarget(taskView2, action: #selector(openTaskButton2Pressed), for: .touchUpInside)
         
         lessonInfoView.addSubview(lessonImageView)
         lessonInfoView.addSubview(separatorForLessonInfoView)
@@ -245,7 +268,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         lessonInfoView.addSubview(timeLabel)
         lessonInfoView.addSubview(descriptionLabel)
         lessonInfoView.addSubview(contentDescriptionLabel)
-        contentView.addSubview(expandeCellButton)
+        lessonInfoView.addSubview(expandeCellButton)
         self.expandeCellButton.addTarget(self, action: #selector(expandCellButtonPressed(_:)), for: .touchUpInside)
         lessonInfoView.addSubview(estimatedTimeLabel)
         
@@ -368,26 +391,33 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         self.contentDescriptionLabel.textColor = data.haveRecordedBroadcast ? UIColor.white : UIColor(named: "appVioletColor")
         self.estimatedTimeLabel.textColor = data.haveRecordedBroadcast ? UIColor.white : UIColor.systemGray3
         self.expandeCellButton.setImage(UIImage(named: data.haveRecordedBroadcast ? "arrowWhite" : "arrowBlack"), for: .normal)
-        self.expandeCellButton.addTarget(self, action: #selector(expandCellButtonPressed(_:)), for: .touchUpInside)
+//        self.expandeCellButton.addTarget(self, action: #selector(expandCellButtonPressed(_:)), for: .touchUpInside)
+        
         self.taskDescriptionLabel1.text = data.homeTasks[0].taskDescription
         self.taskDescriptionLabel2.text = data.homeTasks[1].taskDescription
-        
-        
-        
-        
     }
 
     func animate() {
-        UIView.animate(withDuration: 0.5, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn) {
+        UIView.animate(withDuration: 0.5, delay: 1, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn) {
             self.contentView.layoutIfNeeded()
         }
     }
 
     @objc func expandCellButtonPressed(_ sender: UIButton) {
-//        sender.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2.0)
+//        sender.imageView!.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        print("pressed button with index \(String(describing: self.index))")
         if let delegate = delegate,
             let index = index{
             delegate.teacherCourseTableViewCell(self, expandButtonTappedFor: index)
         }
+    }
+    
+    @objc func openTaskButton1Pressed() {
+        
+        self.delegate?.taskButtonTappedFor(cell: self.index!, taskIndex: 0)
+    }
+    
+    @objc func openTaskButton2Pressed() {
+        self.delegate?.taskButtonTappedFor(cell: self.index!, taskIndex: 1)
     }
 }

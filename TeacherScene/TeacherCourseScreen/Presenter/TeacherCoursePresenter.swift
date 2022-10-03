@@ -95,5 +95,13 @@ extension TeacherCoursePresenter: TeacherCourseInteractorOutput {
 }
 
 extension TeacherCoursePresenter: TeacherCourseViewOutput {
+    func userTappedOpenTaskButton(for task: Task) {
+        self.router.showTaskModule(with: task)
+    }
+    
+    func contactWithTelegramButtonTapped() {
+        self.router.showContactWithTelegram()
+    }
+    
     
 }

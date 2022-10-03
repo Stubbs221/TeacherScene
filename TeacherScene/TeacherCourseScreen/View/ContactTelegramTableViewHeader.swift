@@ -7,8 +7,13 @@
 
 import UIKit
 
-class ContactTelegramTableViewHeader: UIView {
+protocol ContactTelegramTableViewHeaderDelegate: AnyObject {
+    func contactWithTelegramButton()
+}
 
+class ContactTelegramTableViewHeader: UITableViewHeaderFooterView {
+
+    weak var delegate: ContactTelegramTableViewHeaderDelegate?
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -45,13 +50,20 @@ class ContactTelegramTableViewHeader: UIView {
 //        button.imageView?.frame.size = CGSize(width: 20, height: 20)
         button.heightAnchor.constraint(equalToConstant: 43).isActive = true
         button.widthAnchor.constraint(equalToConstant: 283).isActive = true
+        button.addTarget(self, action: #selector(contactWithTelegramButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         configure(with: "Телеграм-чат для связи с преподавателем ")
     }
+    
+    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -76,4 +88,7 @@ class ContactTelegramTableViewHeader: UIView {
             contactWithTelegramButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)])
     }
     
+    @objc func contactWithTelegramButtonTapped() {
+        self.delegate?.contactWithTelegramButton()
+    }
 }

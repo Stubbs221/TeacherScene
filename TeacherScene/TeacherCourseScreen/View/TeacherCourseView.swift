@@ -17,11 +17,15 @@ protocol TeacherCourseViewInput {
 }
 
 protocol TeacherCourseViewOutput {
+    func contactWithTelegramButtonTapped()
     
+    func userTappedOpenTaskButton(for task: Task)
 }
 
 
-class TeacherCourseView: UIViewController, TeacherCourseViewInput {
+class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
+    
+    
     
     
 
@@ -48,6 +52,12 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput {
         
     }
     
+    lazy var tableViewHeader: UITableViewHeaderFooterView = {
+        let header = ContactTelegramTableViewHeader()
+        header.delegate = self
+        return header
+    }()
+    
     lazy var teacherCourseTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,8 +66,9 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = false
-        
-        tableView.tableHeaderView = ContactTelegramTableViewHeader()
+//        tableView.delaysContentTouches = false
+//        tableView.isUserInteractionEnabled = true
+        tableView.tableHeaderView = tableViewHeader
         
         
         

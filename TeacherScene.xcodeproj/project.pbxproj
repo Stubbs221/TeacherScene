@@ -22,7 +22,7 @@
 		1BD5F2E628E6D8E3007CC6E5 /* UIButton+UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2E428E6D8E3007CC6E5 /* UIButton+UIImageExtension.swift */; };
 		1BD5F2E728E6D8E3007CC6E5 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2E528E6D8E3007CC6E5 /* UIColorExtensions.swift */; };
 		1BE9777828E9C2A20063B93E /* DataModelFromFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9777728E9C2A20063B93E /* DataModelFromFB.swift */; };
-		1BE9777A28EA0D580063B93E /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9777928EA0D580063B93E /* UIViewExtensions.swift */; };
+		1BF3187E28EAF59700C46E47 /* TeacherTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3187D28EAF59700C46E47 /* TeacherTabBarView.swift */; };
 		1BF6DAD728CC639300A39EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD628CC639300A39EBA /* AppDelegate.swift */; };
 		1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */; };
 		1BF6DAE028CC639400A39EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BF6DADF28CC639400A39EBA /* Assets.xcassets */; };
@@ -55,7 +55,7 @@
 		1BD5F2E428E6D8E3007CC6E5 /* UIButton+UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+UIImageExtension.swift"; sourceTree = "<group>"; };
 		1BD5F2E528E6D8E3007CC6E5 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		1BE9777728E9C2A20063B93E /* DataModelFromFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelFromFB.swift; sourceTree = "<group>"; };
-		1BE9777928EA0D580063B93E /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		1BF3187D28EAF59700C46E47 /* TeacherTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTabBarView.swift; sourceTree = "<group>"; };
 		1BF6DAD328CC639300A39EBA /* TeacherScene.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeacherScene.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF6DAD628CC639300A39EBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,9 +116,56 @@
 			isa = PBXGroup;
 			children = (
 				1BD5F2E428E6D8E3007CC6E5 /* UIButton+UIImageExtension.swift */,
-				1BE9777928EA0D580063B93E /* UIViewExtensions.swift */,
 			);
 			path = ViewExtensions;
+			sourceTree = "<group>";
+		};
+		1BF3187728EAF44700C46E47 /* TeacherTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1BF3187C28EAF56F00C46E47 /* View */,
+				1BF3187B28EAF56900C46E47 /* Interactor */,
+				1BF3187A28EAF55100C46E47 /* Presenter */,
+				1BF3187928EAF54B00C46E47 /* Entity */,
+				1BF3187828EAF53C00C46E47 /* Router */,
+			);
+			path = TeacherTabBar;
+			sourceTree = "<group>";
+		};
+		1BF3187828EAF53C00C46E47 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		1BF3187928EAF54B00C46E47 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		1BF3187A28EAF55100C46E47 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1BF3187B28EAF56900C46E47 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		1BF3187C28EAF56F00C46E47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1BF3187D28EAF59700C46E47 /* TeacherTabBarView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1BF6DACA28CC639300A39EBA = {
@@ -140,6 +187,7 @@
 		1BF6DAD528CC639300A39EBA /* TeacherScene */ = {
 			isa = PBXGroup;
 			children = (
+				1BF3187728EAF44700C46E47 /* TeacherTabBar */,
 				1BD5F2E228E6D8E3007CC6E5 /* Extensions */,
 				1BF6DAEC28CC65B900A39EBA /* TeacherCourseScreen */,
 				1BF6DAEA28CC659F00A39EBA /* TeacherPaywallModule */,
@@ -350,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF6DAD728CC639300A39EBA /* AppDelegate.swift in Sources */,
+				1BF3187E28EAF59700C46E47 /* TeacherTabBarView.swift in Sources */,
 				1BD5F2DF28E38F58007CC6E5 /* TeacherCourseView + Extensions.swift in Sources */,
 				1BF6DB0F28CCADBF00A39EBA /* TeacherFeaturesCollectionView.swift in Sources */,
 				1B8F932D28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift in Sources */,
@@ -371,7 +420,6 @@
 				1BD5F2DD28E31A01007CC6E5 /* DataModel.swift in Sources */,
 				1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */,
 				1BF6DB0328CC683700A39EBA /* TeacherPaywallInteractor.swift in Sources */,
-				1BE9777A28EA0D580063B93E /* UIViewExtensions.swift in Sources */,
 				1BF6DB0528CC684400A39EBA /* TeacherPaywallRouter.swift in Sources */,
 				1BD5F2E128E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift in Sources */,
 				1BF6DB0B28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift in Sources */,

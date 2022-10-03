@@ -15,6 +15,7 @@ class TeacherCourseTableViewSectionHeader: UITableViewHeaderFooterView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
+        label.textColor = .black
         return label
     }()
     

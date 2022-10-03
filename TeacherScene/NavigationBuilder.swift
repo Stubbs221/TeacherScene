@@ -18,6 +18,8 @@ class NavigationBuilder {
             .foregroundColor: UIColor.white]
         navigationController.navigationBar.largeTitleTextAttributes = largeTextStyleAttributes
         
+        navigationController.tabBarItem.title = "Курс"
+        navigationController.tabBarItem.image = UIImage(systemName: "house")
         
         return navigationController
     }

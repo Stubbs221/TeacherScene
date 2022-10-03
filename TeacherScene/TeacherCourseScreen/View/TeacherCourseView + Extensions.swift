@@ -7,23 +7,36 @@
 
 import UIKit
 
+extension TeacherCourseView: ContactTelegramTableViewHeaderDelegate {
+    func contactWithTelegramButton() {
+        self.output?.contactWithTelegramButtonTapped()
+    }
+    
+    
+}
+
 extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
+    func taskButtonTappedFor(cell indexPath: IndexPath, taskIndex: Int) {
+        output?.userTappedOpenTaskButton(for: (self.dataModel?.events[indexPath.row].homeTasks[taskIndex])!)
+    }
+    
     func teacherCourseTableViewCell(_ teacherCourseTableViewCell: TeacherCourseTableViewCell, expandButtonTappedFor index: IndexPath) {
         defer {
             teacherCourseTableView.scrollToRow(at: index, at: .top, animated: true)
         }
 
+        print("Cell indexPath is: \(index)")
         guard let selectedIndex = selectedIndex else {
             self.selectedIndex = index
             teacherCourseTableView.beginUpdates()
-            
-            
-            
+//                teacherCourseTableViewCell.expandeCellButton.imageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
             teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
-            UIView.animate(withDuration: 2) {
-                teacherCourseTableViewCell.expandeCellButton.imageView?.image?.imageRotated(on: 180)
-            }
+//            teacherCourseTableViewCell.openTaskButton1.isHidden = false
+//            teacherCourseTableViewCell.openTaskButton2.isHidden = false
+//            teacherCourseTableViewCell.openTaskButton1.isEnabled = true
+//            teacherCourseTableViewCell.openTaskButton2.isEnabled = true
             teacherCourseTableView.endUpdates()
+//            print("Selected indexPath is: \(String(describing: selectedIndex)), cell index is \(String(describing: teacherCourseTableViewCell.index))")
             return
         }
 
@@ -32,20 +45,29 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
             self.selectedIndex = nil
 
             teacherCourseTableView.beginUpdates()
+//            UIView.animate(withDuration: 0.25) {
+//                teacherCourseTableViewCell.expandeCellButton.imageView?.transform = .identity
+//            }
             teacherCourseTableView.reloadRows(at: [], with: .none)
-            UIView.animate(withDuration: 0.25) {
-                teacherCourseTableViewCell.expandeCellButton.imageView?.image?.imageRotated(on: 180)
-            }
+//            teacherCourseTableViewCell.openTaskButton1.isHidden = true
+//            teacherCourseTableViewCell.openTaskButton2.isHidden = true
+//            teacherCourseTableViewCell.openTaskButton1.isEnabled = false
+//            teacherCourseTableViewCell.openTaskButton2.isEnabled = false
             teacherCourseTableView.endUpdates()
+//            print("Selected indexPath is: \(selectedIndex), cell index is \(String(describing: teacherCourseTableViewCell.index))")
         } else {
             self.selectedIndex = index
             teacherCourseTableView.beginUpdates()
             
+//                teacherCourseTableViewCell.expandeCellButton.imageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            
             teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
-            UIView.animate(withDuration: 2) {
-                teacherCourseTableViewCell.expandeCellButton.imageView?.image?.imageRotated(on: 180)
-            }
+//            teacherCourseTableViewCell.openTaskButton1.isHidden = false
+//            teacherCourseTableViewCell.openTaskButton2.isHidden = false
+//            teacherCourseTableViewCell.openTaskButton1.isEnabled = true
+//            teacherCourseTableViewCell.openTaskButton2.isEnabled = true
             teacherCourseTableView.endUpdates()
+//            print("Selected indexPath is: \(selectedIndex)")
         }
     }
 

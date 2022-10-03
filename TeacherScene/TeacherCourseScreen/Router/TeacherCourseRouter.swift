@@ -10,6 +10,10 @@ import UIKit
 
 protocol TeacherCourseRouterInput {
     func showModule(with view: UIViewController)
+    
+    func showContactWithTelegram()
+    
+    func showTaskModule(with task: Task)
 }
 
 final class TeacherCourseRouter: TeacherCourseRouterInput {
@@ -18,5 +22,15 @@ final class TeacherCourseRouter: TeacherCourseRouterInput {
     
     func showModule(with view: UIViewController) {
         print("router did receive action")
+    }
+    
+    func showContactWithTelegram() {
+        #warning("тут открывается телега")
+        print("нажата кнопка открытия телеграма")
+    }
+    
+    func showTaskModule(with task: Task) {
+        #warning("тут открывается задание урока")
+        print("нажата кнопка открытия задания урока")
     }
 }

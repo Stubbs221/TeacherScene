@@ -78,10 +78,10 @@
             filePath = "TeacherScene/TeacherCourseScreen/Interactor/TeacherCourseInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "fetchData()"
-            landmarkType = "7">
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "output"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,10 +94,10 @@
             filePath = "TeacherScene/TeacherCourseScreen/Interactor/TeacherCourseInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "fetchData()"
-            landmarkType = "7">
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "output"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -174,8 +174,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "dataModel"
             landmarkType = "24">
          </BreakpointContent>
@@ -215,7 +215,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "75A9E4EC-18B8-461F-B4CC-5AD17C704E79"
+            uuid = "4B48EC99-8421-4B65-8E14-6B0E35BC9506"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -231,7 +231,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B48EC99-8421-4B65-8E14-6B0E35BC9506"
+            uuid = "D973E6CE-8D01-4203-A99B-CD8073DBCDA0"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -247,22 +247,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D973E6CE-8D01-4203-A99B-CD8073DBCDA0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "setupUI()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "CC828799-C63F-4BAF-A949-11110479097D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -270,8 +254,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
             landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,8 +270,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
             landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -302,8 +286,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
+            startingLineNumber = "355"
+            endingLineNumber = "355"
             landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +302,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -334,24 +318,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
-            landmarkName = "setupUI()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "885ADD6F-2AE4-48F5-B39D-E42875CD4BCB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
             landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -366,8 +334,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseView + Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "teacherCourseTableViewCell(_:expandButtonTappedFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -382,8 +350,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
             landmarkName = "expandCellButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -398,8 +366,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
@@ -414,8 +382,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "configureCell(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -430,8 +398,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -446,8 +414,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseView + Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "teacherCourseTableViewCell(_:expandButtonTappedFor:)"
             landmarkType = "7">
             <Locations>
@@ -494,8 +462,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseView + Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "teacherCourseTableViewCell(_:expandButtonTappedFor:)"
             landmarkType = "7">
             <Locations>
@@ -542,8 +510,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseView + Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "teacherCourseTableViewCell(_:expandButtonTappedFor:)"
             landmarkType = "7">
             <Locations>
@@ -590,8 +558,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseView + Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "teacherCourseTableViewCell(_:expandButtonTappedFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -606,8 +574,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseView + Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "teacherCourseTableViewCell(_:expandButtonTappedFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -622,8 +590,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseView + Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "teacherCourseTableViewCell(_:expandButtonTappedFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -638,8 +606,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseView + Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "teacherCourseTableViewCell(_:expandButtonTappedFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -654,8 +622,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "407"
-            endingLineNumber = "407"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
             landmarkName = "expandCellButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -686,8 +654,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "openTaskButton1Pressed()"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,8 +670,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "420"
-            endingLineNumber = "420"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
             landmarkName = "openTaskButton2Pressed()"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,8 +686,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "openTaskButton2"
             landmarkType = "24">
             <Locations>
@@ -766,8 +734,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
             landmarkName = "openTaskButton1Pressed()"
             landmarkType = "7">
          </BreakpointContent>
@@ -782,8 +750,8 @@
             filePath = "TeacherScene/TeacherCourseScreen/View/TeacherCourseTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "421"
-            endingLineNumber = "421"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
             landmarkName = "openTaskButton2Pressed()"
             landmarkType = "7">
          </BreakpointContent>

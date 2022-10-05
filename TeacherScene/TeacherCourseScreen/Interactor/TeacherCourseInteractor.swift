@@ -24,7 +24,10 @@ protocol TeacherCourseInteractorOutput: AnyObject {
 final class TeacherCourseInteractor: TeacherCourseInteractorInput {
     weak var output: TeacherCourseInteractorOutput? {
         didSet {
-            self.fetchData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                self.fetchData()
+            })
+            
         }
     }
     

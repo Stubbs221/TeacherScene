@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 extension TeacherCourseView: ContactTelegramTableViewHeaderDelegate {
     func contactWithTelegramButton() {
@@ -74,9 +75,11 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
 
 }
 
-extension TeacherCourseView: UITableViewDelegate, UITableViewDataSource {
+extension TeacherCourseView: UITableViewDelegate, SkeletonTableViewDataSource {
  
-    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return TeacherCourseTableViewCell.reuseIdentifier
+    }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -23,6 +23,7 @@
 		1BD5F2E728E6D8E3007CC6E5 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD5F2E528E6D8E3007CC6E5 /* UIColorExtensions.swift */; };
 		1BE9777828E9C2A20063B93E /* DataModelFromFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9777728E9C2A20063B93E /* DataModelFromFB.swift */; };
 		1BF3187E28EAF59700C46E47 /* TeacherTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF3187D28EAF59700C46E47 /* TeacherTabBarView.swift */; };
+		1BF3188128EDC43500C46E47 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 1BF3188028EDC43500C46E47 /* SkeletonView */; };
 		1BF6DAD728CC639300A39EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD628CC639300A39EBA /* AppDelegate.swift */; };
 		1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DAD828CC639300A39EBA /* SceneDelegate.swift */; };
 		1BF6DAE028CC639400A39EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BF6DADF28CC639400A39EBA /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 				1BD5F2D028E31547007CC6E5 /* FirebaseDatabase in Frameworks */,
 				1BD5F2D428E31547007CC6E5 /* FirebaseFirestore in Frameworks */,
 				1BD5F2D828E31547007CC6E5 /* FirebaseStorage in Frameworks */,
+				1BF3188128EDC43500C46E47 /* SkeletonView in Frameworks */,
 				1BD5F2D628E31547007CC6E5 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +341,7 @@
 				1BD5F2D328E31547007CC6E5 /* FirebaseFirestore */,
 				1BD5F2D528E31547007CC6E5 /* FirebaseFirestoreSwift */,
 				1BD5F2D728E31547007CC6E5 /* FirebaseStorage */,
+				1BF3188028EDC43500C46E47 /* SkeletonView */,
 			);
 			productName = TeacherScene;
 			productReference = 1BF6DAD328CC639300A39EBA /* TeacherScene.app */;
@@ -370,6 +373,7 @@
 			mainGroup = 1BF6DACA28CC639300A39EBA;
 			packageReferences = (
 				1BD5F2CE28E31546007CC6E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1BF3187F28EDC43500C46E47 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 1BF6DAD428CC639300A39EBA /* Products */;
 			projectDirPath = "";
@@ -642,6 +646,14 @@
 				kind = branch;
 			};
 		};
+		1BF3187F28EDC43500C46E47 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -669,6 +681,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1BD5F2CE28E31546007CC6E5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		1BF3188028EDC43500C46E47 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BF3187F28EDC43500C46E47 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

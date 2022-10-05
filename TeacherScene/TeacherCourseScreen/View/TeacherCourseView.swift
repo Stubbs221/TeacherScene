@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 protocol TeacherCourseViewInput {
     var output: TeacherCourseViewOutput? { get set }
@@ -45,11 +46,15 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
-        
-        
+
         setupUI()
         setupNavigation()
-        
+        teacherCourseTableView.showSkeleton(usingColor: .wetAsphalt, transition: .crossDissolve(0.25))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        teacherCourseTableView.isSkeletonable = true
     }
     
     lazy var tableViewHeader: UITableViewHeaderFooterView = {
@@ -66,8 +71,7 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = false
-//        tableView.delaysContentTouches = false
-//        tableView.isUserInteractionEnabled = true
+
         tableView.tableHeaderView = tableViewHeader
         
         
@@ -75,11 +79,7 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
         tableView.backgroundColor = UIColor(named: "appBackgroundWhite")
         tableView.separatorColor = .clear
         tableView.showsVerticalScrollIndicator = false
-//        if #available(iOS 15.0, *) {
-//            tableView.sectionHeaderTopPadding = 120
-//        } else {
-//            // Fallback on earlier versions
-//        }
+
         return tableView
     }()
     

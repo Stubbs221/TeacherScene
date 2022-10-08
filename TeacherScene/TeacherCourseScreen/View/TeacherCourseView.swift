@@ -93,5 +93,11 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
         #warning("добавить сообщение пользователю что данные не пришли с сети")
     }
     
-    
+    func changeIsSelectedCellState(with indexPath: IndexPath, state: Bool) {
+        if indexPath.section == 0 {
+            self.dataModel?.nextEvent?.isCellSelected = state
+        } else {
+            self.dataModel?.events[indexPath.row].isCellSelected = state
+        }
+    }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct DataModel {
+    var nextEvent: Event?
     var events: [Event]
 }
 

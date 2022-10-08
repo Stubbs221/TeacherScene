@@ -72,7 +72,8 @@ extension TeacherCoursePresenter: TeacherCourseInteractorOutput {
         dataModelForView.events.sort { (leftElement, rightElement) in
             dateFormatter.date(from: leftElement.eventDate) ?? Date.distantPast < dateFormatter.date(from: rightElement.eventDate) ?? Date.distantPast
         }
-        
+        dataModelForView.nextEvent = dataModelForView.events[0]
+        dataModelForView.events = Array(dataModelForView.events.dropFirst())
         view.updateDataSource(with: dataModelForView)
         
         #warning("добавить соортировку по дате через dateFormatter по eventDate")

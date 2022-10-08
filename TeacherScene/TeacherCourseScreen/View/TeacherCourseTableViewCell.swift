@@ -20,8 +20,17 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
     
     var index: IndexPath?
     
+    var isCellSecelted: Bool = false
+    
     weak var delegate: TeacherCourseTableViewCellDelegate?
     
+    
+    
+    
+    let background: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     
     lazy var eventView: UIView = {
@@ -43,7 +52,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         view.layer.shadowRadius = 6
         view.layer.shadowOpacity = 0.2
         view.isUserInteractionEnabled = false
-        view.isSkeletonable
+        view.isSkeletonable = true
         
         return view
     }()
@@ -55,6 +64,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         imageView.backgroundColor = .white
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
+        imageView.isSkeletonable = true
         return imageView
     }()
     
@@ -70,6 +80,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        label.isSkeletonable = true
         return label
     }()
     
@@ -77,6 +88,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        label.isSkeletonable = true
         return label
     }()
     
@@ -113,17 +125,6 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         return button
     }()
     
-//  MARK: Вью с заданием
-    
-    
-    lazy var taskView1: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 175).isActive = true
-        view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 32).isActive = true
-        view.isUserInteractionEnabled = false
-        return view
-    }()
     
     lazy var taskNumberLabel1: UILabel = {
         let label = UILabel()
@@ -156,18 +157,9 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         button.layer.shadowOpacity = 0.2
         button.layer.shadowOffset = CGSize(width: 3, height: 3)
         button.isUserInteractionEnabled = true
-//        button.isHidden = true
-//        button.isEnabled = false
+        button.isHidden = !isCellSecelted
+        button.isEnabled = isCellSecelted
         return button
-    }()
-    
-    lazy var taskView2: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: 175).isActive = true
-        view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 32).isActive = true
-        view.isUserInteractionEnabled = false
-        return view
     }()
     
     lazy var taskNumberLabel2: UILabel = {
@@ -203,8 +195,8 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         button.isUserInteractionEnabled = true
         button.isHighlighted = true
 //        button.isSelected = true
-//        button.isHidden = true
-//        button.isEnabled = false
+        button.isHidden = !isCellSecelted
+        button.isEnabled = isCellSecelted
         return button
     }()
 
@@ -212,6 +204,8 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.isSkeletonable = true
         contentView.isSkeletonable = true
+        
+        
         setupUI()
         
     }
@@ -245,19 +239,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
 //        также с ним не работают тени, так что нужно использовать два вью - один для теней, второй для обрезки сабвью
         eventView.addSubview(lessonInfoView)
  
-        eventView.addSubview(taskNumberLabel1)
-        eventView.addSubview(taskDescriptionLabel1)
         
-        #warning("если интерактивный элемент не дочерний для контентВью, а для любого его дочернего сабвью, то экшн не обрабатывается")
-        eventView.addSubview(openTaskButton1)
-        self.openTaskButton1.addTarget(self, action: #selector(openTaskButton1Pressed), for: .touchUpInside)
-        
-        eventView.addSubview(taskNumberLabel2)
-        eventView.addSubview(taskDescriptionLabel2)
-        
-        #warning("тут по такому же сценарию")
-        eventView.addSubview(openTaskButton2)
-        self.openTaskButton1.addTarget(self, action: #selector(openTaskButton2Pressed), for: .touchUpInside)
         
 //        лессонИнфоВью служит контейнером для описания урока(события)
         lessonInfoView.addSubview(lessonImageView)
@@ -275,7 +257,52 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         lessonInfoView.addSubview(estimatedTimeLabel)
         
         
+        eventView.addSubview(taskNumberLabel1)
+        eventView.addSubview(taskDescriptionLabel1)
+        
+        #warning("если интерактивный элемент не дочерний для контентВью, а для любого его дочернего сабвью, то экшн не обрабатывается")
+        contentView.addSubview(openTaskButton1)
+        self.openTaskButton1.addTarget(self, action: #selector(openTaskButton1Pressed), for: .touchUpInside)
+        
+        eventView.addSubview(taskNumberLabel2)
+        eventView.addSubview(taskDescriptionLabel2)
+        
+        #warning("тут по такому же сценарию")
+        contentView.addSubview(openTaskButton2)
+        self.openTaskButton2.addTarget(self, action: #selector(openTaskButton2Pressed), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            taskNumberLabel1.leadingAnchor.constraint(equalTo: eventView.leadingAnchor, constant: 22),
+            taskNumberLabel1.topAnchor.constraint(equalTo: lessonInfoView.bottomAnchor, constant: 27)])
+        
+        NSLayoutConstraint.activate([
+            taskDescriptionLabel1.leadingAnchor.constraint(equalTo: taskNumberLabel1.leadingAnchor),
+            taskDescriptionLabel1.topAnchor.constraint(equalTo: taskNumberLabel1.bottomAnchor, constant: 10),
+            taskDescriptionLabel1.widthAnchor.constraint(equalToConstant: 300)])
+        
+        NSLayoutConstraint.activate([
+            openTaskButton1.leadingAnchor.constraint(equalTo: taskDescriptionLabel1.leadingAnchor),
+            openTaskButton1.trailingAnchor.constraint(equalTo: eventView.trailingAnchor, constant: -22),
+            openTaskButton1.topAnchor.constraint(equalTo: taskDescriptionLabel1.bottomAnchor, constant: 14),
+            openTaskButton1.heightAnchor.constraint(equalToConstant: 47)
+        ])
+        
 
+        NSLayoutConstraint.activate([
+            taskNumberLabel2.leadingAnchor.constraint(equalTo: eventView.leadingAnchor, constant: 22),
+            taskNumberLabel2.topAnchor.constraint(equalTo: openTaskButton1.bottomAnchor, constant: 27)])
+        
+        NSLayoutConstraint.activate([
+            taskDescriptionLabel2.leadingAnchor.constraint(equalTo: taskNumberLabel2.leadingAnchor),
+            taskDescriptionLabel2.topAnchor.constraint(equalTo: taskNumberLabel2.bottomAnchor, constant: 10),
+            taskDescriptionLabel2.widthAnchor.constraint(equalToConstant: 300)])
+        
+        NSLayoutConstraint.activate([
+            openTaskButton2.leadingAnchor.constraint(equalTo: taskDescriptionLabel2.leadingAnchor),
+            openTaskButton2.trailingAnchor.constraint(equalTo: eventView.trailingAnchor, constant: -22),
+            openTaskButton2.topAnchor.constraint(equalTo: taskDescriptionLabel2.bottomAnchor, constant: 14),
+            openTaskButton2.heightAnchor.constraint(equalToConstant: 47)
+        ])
         
         NSLayoutConstraint.activate([
             contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
@@ -335,42 +362,20 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
             estimatedTimeLabel.bottomAnchor.constraint(equalTo: contentDescriptionLabel.bottomAnchor)
         ])
         
-        NSLayoutConstraint.activate([
-            taskNumberLabel1.leadingAnchor.constraint(equalTo: eventView.leadingAnchor, constant: 22),
-            taskNumberLabel1.topAnchor.constraint(equalTo: lessonInfoView.bottomAnchor, constant: 27)])
-        
-        NSLayoutConstraint.activate([
-            taskDescriptionLabel1.leadingAnchor.constraint(equalTo: taskNumberLabel1.leadingAnchor),
-            taskDescriptionLabel1.topAnchor.constraint(equalTo: taskNumberLabel1.bottomAnchor, constant: 10),
-            taskDescriptionLabel1.widthAnchor.constraint(equalToConstant: 300)])
-        
-        NSLayoutConstraint.activate([
-            openTaskButton1.leadingAnchor.constraint(equalTo: taskDescriptionLabel1.leadingAnchor),
-            openTaskButton1.trailingAnchor.constraint(equalTo: eventView.trailingAnchor, constant: -22),
-            openTaskButton1.topAnchor.constraint(equalTo: taskDescriptionLabel1.bottomAnchor, constant: 14),
-            openTaskButton1.heightAnchor.constraint(equalToConstant: 47)
-        ])
-        
-
-        NSLayoutConstraint.activate([
-            taskNumberLabel2.leadingAnchor.constraint(equalTo: eventView.leadingAnchor, constant: 22),
-            taskNumberLabel2.topAnchor.constraint(equalTo: openTaskButton1.bottomAnchor, constant: 27)])
-        
-        NSLayoutConstraint.activate([
-            taskDescriptionLabel2.leadingAnchor.constraint(equalTo: taskNumberLabel2.leadingAnchor),
-            taskDescriptionLabel2.topAnchor.constraint(equalTo: taskNumberLabel2.bottomAnchor, constant: 10),
-            taskDescriptionLabel2.widthAnchor.constraint(equalToConstant: 300)])
-        
-        NSLayoutConstraint.activate([
-            openTaskButton2.leadingAnchor.constraint(equalTo: taskDescriptionLabel2.leadingAnchor),
-            openTaskButton2.trailingAnchor.constraint(equalTo: eventView.trailingAnchor, constant: -22),
-            openTaskButton2.topAnchor.constraint(equalTo: taskDescriptionLabel2.bottomAnchor, constant: 14),
-            openTaskButton2.heightAnchor.constraint(equalToConstant: 47)
-        ])
         
     }
     
+    override func prepareForReuse() {
+        self.isCellSecelted = false
+    }
+    
+    
+    func dealWithTasks() {
+        
+       
+    }
     func configureCell(with data: Event) {
+        
         self.dateLabel.text = data.eventDate
         self.timeLabel.text = data.eventTime
         self.descriptionLabel.text = data.eventName
@@ -388,6 +393,11 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         
         self.taskDescriptionLabel1.text = data.homeTasks[0].taskDescription
         self.taskDescriptionLabel2.text = data.homeTasks[1].taskDescription
+        
+        self.openTaskButton1.isHidden = !data.isCellSelected
+        self.openTaskButton2.isHidden = !data.isCellSelected
+        self.openTaskButton1.isEnabled = data.isCellSelected
+        self.openTaskButton2.isEnabled = data.isCellSelected
     }
 
     func animate() {
@@ -399,6 +409,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
     @objc func expandCellButtonPressed(_ sender: UIButton) {
 //        sender.imageView!.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         print("pressed button with index \(String(describing: self.index))")
+//        self.isCellSecelted = !self.isCellSecelted
         if let delegate = delegate,
             let index = index{
             delegate.teacherCourseTableViewCell(self, expandButtonTappedFor: index)
@@ -406,11 +417,12 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
     }
     
     @objc func openTaskButton1Pressed() {
-        
+        print("task1 button pressed")
         self.delegate?.taskButtonTappedFor(cell: self.index!, taskIndex: 0)
     }
     
     @objc func openTaskButton2Pressed() {
+        print("task2 button pressed")
         self.delegate?.taskButtonTappedFor(cell: self.index!, taskIndex: 1)
     }
 }

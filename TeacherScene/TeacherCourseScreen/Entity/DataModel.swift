@@ -18,7 +18,7 @@ struct Event {
     var eventTime: String
     var haveRecordedBroadcast: Bool
     var homeTasks: [Task]
-    var isOpened: Bool = false
+    var isCellSelected: Bool = false
 }
 
 struct Task {

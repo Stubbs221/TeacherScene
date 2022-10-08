@@ -38,7 +38,6 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
     
     var dataModel: DataModel? {
         didSet {
-            
             teacherCourseTableView.reloadData()
         }
     }
@@ -55,6 +54,8 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         teacherCourseTableView.isSkeletonable = true
+        
+//        teacherCourseTableView.showAnimatedSkeleton(usingColor: .concrete, transition: .crossDissolve(0.25))
     }
     
     lazy var tableViewHeader: UITableViewHeaderFooterView = {
@@ -70,7 +71,7 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
         tableView.register(TeacherCourseTableViewSectionHeader.self, forHeaderFooterViewReuseIdentifier: TeacherCourseTableViewSectionHeader.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.allowsSelection = false
+//        tableView.allowsSelection = true
 
         tableView.tableHeaderView = tableViewHeader
         

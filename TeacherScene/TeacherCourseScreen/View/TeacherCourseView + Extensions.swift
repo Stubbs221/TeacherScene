@@ -25,57 +25,74 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
         defer {
             teacherCourseTableView.scrollToRow(at: index, at: .top, animated: true)
         }
+        
 
-        print("Cell indexPath is: \(index)")
         guard let selectedIndex = selectedIndex else {
+//            срабатывает если никакая ячейка до этого не была выбрана
             self.selectedIndex = index
+            
+//            меняется стейт "ячейка открыта/закрыта" в моделе данных для вьюхи
+            self.dataModel?.events[selectedIndex!.row].isCellSelected = true
+            
+//            teacherCourseTableView.performBatchUpdates {
+//                if !teacherCourseTableViewCell.isCellSecelted {
+//                    teacherCourseTableViewCell.dealWithTasks() }
+//                teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
+//            }
+
             teacherCourseTableView.beginUpdates()
-//                teacherCourseTableViewCell.expandeCellButton.imageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
             teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
-//            teacherCourseTableViewCell.openTaskButton1.isHidden = false
-//            teacherCourseTableViewCell.openTaskButton2.isHidden = false
-//            teacherCourseTableViewCell.openTaskButton1.isEnabled = true
-//            teacherCourseTableViewCell.openTaskButton2.isEnabled = true
             teacherCourseTableView.endUpdates()
-//            print("Selected indexPath is: \(String(describing: selectedIndex)), cell index is \(String(describing: teacherCourseTableViewCell.index))")
             return
         }
-
-
+        
+        
+//
         if self.selectedIndex == index {
+//            срабатывает если повторно попытаться открыть одну и туже ячейку( должна скрыться)
+//            индексу выбранной ячейки присваивается нил, так как активная ячейка должна скрыться
+            
+            self.dataModel?.events[selectedIndex.row].isCellSelected = false
             self.selectedIndex = nil
-
+            
+            
+            
+//            teacherCourseTableView.performBatchUpdates {
+//                if teacherCourseTableViewCell.isCellSecelted {
+//                    teacherCourseTableViewCell.dealWithTasks() }
             teacherCourseTableView.beginUpdates()
-//            UIView.animate(withDuration: 0.25) {
-//                teacherCourseTableViewCell.expandeCellButton.imageView?.transform = .identity
+                teacherCourseTableView.reloadRows(at: [], with: .none)
+            teacherCourseTableView.endUpdates()
 //            }
-            teacherCourseTableView.reloadRows(at: [], with: .none)
-//            teacherCourseTableViewCell.openTaskButton1.isHidden = true
-//            teacherCourseTableViewCell.openTaskButton2.isHidden = true
-//            teacherCourseTableViewCell.openTaskButton1.isEnabled = false
-//            teacherCourseTableViewCell.openTaskButton2.isEnabled = false
-            teacherCourseTableView.endUpdates()
-//            print("Selected indexPath is: \(selectedIndex), cell index is \(String(describing: teacherCourseTableViewCell.index))")
+
         } else {
+//            срабатывает в случае если уже была открыта одна ячейка и пользователь открыл другую
+            
+//            первой присваиваем стейт "ячейка выбрана" - false
+            self.dataModel?.events[selectedIndex.row].isCellSelected = false
+            
+            
             self.selectedIndex = index
+            
+//            второй присваиваем стейт "ячейка выбрана" - true
+            self.dataModel?.events[selectedIndex.row].isCellSelected = true
+            
+            teacherCourseTableView.performBatchUpdates {
+//                if !teacherCourseTableViewCell.isCellSecelted {
+//                    teacherCourseTableViewCell.dealWithTasks() }
+                
+            }
+            
             teacherCourseTableView.beginUpdates()
-            
-//                teacherCourseTableViewCell.expandeCellButton.imageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-            
             teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
-//            teacherCourseTableViewCell.openTaskButton1.isHidden = false
-//            teacherCourseTableViewCell.openTaskButton2.isHidden = false
-//            teacherCourseTableViewCell.openTaskButton1.isEnabled = true
-//            teacherCourseTableViewCell.openTaskButton2.isEnabled = true
             teacherCourseTableView.endUpdates()
-//            print("Selected indexPath is: \(selectedIndex)")
         }
     }
 
 
 }
 
-extension TeacherCourseView: UITableViewDelegate, SkeletonTableViewDataSource {
+extension TeacherCourseView: SkeletonTableViewDelegate, SkeletonTableViewDataSource {
  
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return TeacherCourseTableViewCell.reuseIdentifier
@@ -97,26 +114,24 @@ extension TeacherCourseView: UITableViewDelegate, SkeletonTableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         guard let dataModel = self.dataModel else { return 0 }
-        
         return section == 0 ? 1 : dataModel.events.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TeacherCourseTableViewCell.reuseIdentifier, for: indexPath) as? TeacherCourseTableViewCell,
               let dataModel = dataModel else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.configureCell(with: dataModel.events[indexPath.row])
         cell.delegate = self
         cell.index = indexPath
+        
+        
+        cell.configureCell(with: dataModel.events[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

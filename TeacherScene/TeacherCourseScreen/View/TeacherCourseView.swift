@@ -34,7 +34,7 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
     
     var selectedIndex: IndexPath?
     
-    let sections = ["Ближайшая трансляция", "Учебный план"]
+    let sections = ["Ближайшая трансляция", "Предстоящие занятия"]
     
     var dataModel: DataModel? {
         didSet {

@@ -6,12 +6,14 @@
 //
 
 import UIKit
-import SkeletonView
+//import SkeletonView
 
 protocol TeacherCourseTableViewCellDelegate: AnyObject {
     func teacherCourseTableViewCell(_ teacherCourseTableViewCell: TeacherCourseTableViewCell, expandButtonTappedFor index: IndexPath)
     
     func taskButtonTappedFor(cell indexPath: IndexPath, taskIndex: Int)
+    
+    func changeIsSelectedCellState(with indexPath: IndexPath, state: Bool)
 }
 
 class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
@@ -24,9 +26,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
     
     weak var delegate: TeacherCourseTableViewCellDelegate?
     
-    
-    
-    
+
     let background: UIView = {
         let view = UIView()
         return view
@@ -40,7 +40,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         view.backgroundColor = .white
         view.layer.masksToBounds = true
         view.isUserInteractionEnabled = false
-        view.isSkeletonable = true
+//        view.isSkeletonable = true
         return view
     }()
     
@@ -52,7 +52,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         view.layer.shadowRadius = 6
         view.layer.shadowOpacity = 0.2
         view.isUserInteractionEnabled = false
-        view.isSkeletonable = true
+//        view.isSkeletonable = true
         
         return view
     }()
@@ -64,7 +64,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         imageView.backgroundColor = .white
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.isSkeletonable = true
+//        imageView.isSkeletonable = true
         return imageView
     }()
     
@@ -80,7 +80,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        label.isSkeletonable = true
+//        label.isSkeletonable = true
         return label
     }()
     
@@ -88,7 +88,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        label.isSkeletonable = true
+//        label.isSkeletonable = true
         return label
     }()
     
@@ -202,12 +202,9 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.isSkeletonable = true
-        contentView.isSkeletonable = true
-        
-        
+//        self.isSkeletonable = true
+//        contentView.isSkeletonable = true
         setupUI()
-        
     }
     
     
@@ -249,28 +246,17 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         lessonInfoView.addSubview(timeLabel)
         lessonInfoView.addSubview(descriptionLabel)
         lessonInfoView.addSubview(contentDescriptionLabel)
-        
-        #warning("при добавлении интерактивного элемента на контентвью - все срабатывает")
         contentView.addSubview(expandeCellButton)
         self.expandeCellButton.addTarget(self, action: #selector(expandCellButtonPressed(_:)), for: .touchUpInside)
-        
         lessonInfoView.addSubview(estimatedTimeLabel)
-        
-        
         eventView.addSubview(taskNumberLabel1)
         eventView.addSubview(taskDescriptionLabel1)
-        
-        #warning("если интерактивный элемент не дочерний для контентВью, а для любого его дочернего сабвью, то экшн не обрабатывается")
         contentView.addSubview(openTaskButton1)
         self.openTaskButton1.addTarget(self, action: #selector(openTaskButton1Pressed), for: .touchUpInside)
-        
         eventView.addSubview(taskNumberLabel2)
         eventView.addSubview(taskDescriptionLabel2)
-        
-        #warning("тут по такому же сценарию")
         contentView.addSubview(openTaskButton2)
         self.openTaskButton2.addTarget(self, action: #selector(openTaskButton2Pressed), for: .touchUpInside)
-        
         NSLayoutConstraint.activate([
             taskNumberLabel1.leadingAnchor.constraint(equalTo: eventView.leadingAnchor, constant: 22),
             taskNumberLabel1.topAnchor.constraint(equalTo: lessonInfoView.bottomAnchor, constant: 27)])
@@ -287,7 +273,6 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
             openTaskButton1.heightAnchor.constraint(equalToConstant: 47)
         ])
         
-
         NSLayoutConstraint.activate([
             taskNumberLabel2.leadingAnchor.constraint(equalTo: eventView.leadingAnchor, constant: 22),
             taskNumberLabel2.topAnchor.constraint(equalTo: openTaskButton1.bottomAnchor, constant: 27)])
@@ -370,10 +355,6 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
     }
     
     
-    func dealWithTasks() {
-        
-       
-    }
     func configureCell(with data: Event) {
         
         self.dateLabel.text = data.eventDate
@@ -389,8 +370,6 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
         self.contentDescriptionLabel.textColor = data.haveRecordedBroadcast ? UIColor.white : UIColor(named: "appVioletColor")
         self.estimatedTimeLabel.textColor = data.haveRecordedBroadcast ? UIColor.white : UIColor.systemGray3
         self.expandeCellButton.setImage(UIImage(named: data.haveRecordedBroadcast ? "arrowWhite" : "arrowBlack"), for: .normal)
-//        self.expandeCellButton.addTarget(self, action: #selector(expandCellButtonPressed(_:)), for: .touchUpInside)
-        
         self.taskDescriptionLabel1.text = data.homeTasks[0].taskDescription
         self.taskDescriptionLabel2.text = data.homeTasks[1].taskDescription
         
@@ -407,9 +386,7 @@ class TeacherCourseTableViewCell: UITableViewCell, UIScrollViewDelegate {
     }
 
     @objc func expandCellButtonPressed(_ sender: UIButton) {
-//        sender.imageView!.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         print("pressed button with index \(String(describing: self.index))")
-//        self.isCellSecelted = !self.isCellSecelted
         if let delegate = delegate,
             let index = index{
             delegate.teacherCourseTableViewCell(self, expandButtonTappedFor: index)

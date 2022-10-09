@@ -44,10 +44,7 @@ class ContactTelegramTableViewHeader: UITableViewHeaderFooterView {
         button.titleLabel?.semanticContentAttribute = .forceRightToLeft
         button.imageView?.contentMode = .scaleAspectFit
         button.semanticContentAttribute = .forceRightToLeft
-//        button.imageView?.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: -20).isActive = true
-//        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: -350)
         button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 0)
-//        button.imageView?.frame.size = CGSize(width: 20, height: 20)
         button.heightAnchor.constraint(equalToConstant: 43).isActive = true
         button.widthAnchor.constraint(equalToConstant: 283).isActive = true
         button.addTarget(self, action: #selector(contactWithTelegramButtonTapped), for: .touchUpInside)
@@ -58,12 +55,6 @@ class ContactTelegramTableViewHeader: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         configure(with: "Телеграм-чат для связи с преподавателем ")
     }
-    
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        
-//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

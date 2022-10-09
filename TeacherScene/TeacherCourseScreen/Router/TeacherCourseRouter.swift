@@ -14,11 +14,19 @@ protocol TeacherCourseRouterInput {
     func showContactWithTelegram()
     
     func showTaskModule(with task: Task)
+    
+    func showEventMedia(from task: Event)
 }
 
 final class TeacherCourseRouter: TeacherCourseRouterInput {
     
+    
+    
     weak var rootViewController: UIViewController?
+    
+    func showEventMedia(from task: Event) {
+        print("роутер получил запрос на открытие трансляции/записи от пользователя")
+    }
     
     func showModule(with view: UIViewController) {
         print("router did receive action")

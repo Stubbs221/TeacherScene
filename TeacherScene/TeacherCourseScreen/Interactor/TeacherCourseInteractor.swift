@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseStorage
-import FirebaseDatabase
+//import Firebase
+//import FirebaseStorage
+//import FirebaseDatabase
 
 protocol TeacherCourseInteractorInput {
     var output: TeacherCourseInteractorOutput? { get set }

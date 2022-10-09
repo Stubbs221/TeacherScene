@@ -15,6 +15,15 @@ extension TeacherCourseView: ContactTelegramTableViewHeaderDelegate {
 }
 
 extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
+    
+    func changeIsSelectedCellState(with indexPath: IndexPath, state: Bool) {
+        if indexPath.section == 0 {
+            self.dataModel?.nextEvent?.isCellSelected = state
+        } else {
+            self.dataModel?.events[indexPath.row].isCellSelected = state
+        }
+    }
+    
     func taskButtonTappedFor(cell indexPath: IndexPath, taskIndex: Int) {
         output?.userTappedOpenTaskButton(for: (self.dataModel?.events[indexPath.row].homeTasks[taskIndex])!)
     }
@@ -23,17 +32,13 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
         defer {
             teacherCourseTableView.scrollToRow(at: index, at: .top, animated: true)
         }
-        
-        
-        
         guard let selectedIndex = selectedIndex else {
 //            срабатывает если никакая ячейка до этого не была выбрана
             self.selectedIndex = index
-            
 //            меняется стейт "ячейка открыта/закрыта" в моделе данных для вьюхи
             changeIsSelectedCellState(with: selectedIndex!, state: true)
 //            self.dataModel?.events[selectedIndex!.row].isCellSelected = true
-            
+
             teacherCourseTableView.beginUpdates()
             teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
             teacherCourseTableView.endUpdates()
@@ -56,14 +61,16 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
 //            срабатывает в случае если уже была открыта одна ячейка и пользователь открыл другую
             
 //            первой присваиваем стейт "ячейка выбрана" - false
-            changeIsSelectedCellState(with: selectedIndex, state: false)
+            changeIsSelectedCellState(with: self.selectedIndex!, state: false)
 //            self.dataModel?.events[selectedIndex.row].isCellSelected = false
-            
+            teacherCourseTableView.beginUpdates()
+            teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
+            teacherCourseTableView.endUpdates()
             
             self.selectedIndex = index
             
 //            второй присваиваем стейт "ячейка выбрана" - true
-            changeIsSelectedCellState(with: selectedIndex, state: true)
+            changeIsSelectedCellState(with: self.selectedIndex!, state: true)
 //            self.dataModel?.events[selectedIndex.row].isCellSelected = true
                         
             teacherCourseTableView.beginUpdates()
@@ -75,13 +82,8 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
     
 }
 
-extension TeacherCourseView: SkeletonTableViewDelegate, SkeletonTableViewDataSource {
- 
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return TeacherCourseTableViewCell.reuseIdentifier
-    }
-    
-    
+extension TeacherCourseView: UITableViewDelegate, UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let rowHeight: CGFloat = 170
         guard let dataModel = dataModel else { return rowHeight }
@@ -119,6 +121,8 @@ extension TeacherCourseView: SkeletonTableViewDelegate, SkeletonTableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let dataModel = dataModel else { return }
+        output?.userTappedCell(with: indexPath, dataModel: dataModel)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

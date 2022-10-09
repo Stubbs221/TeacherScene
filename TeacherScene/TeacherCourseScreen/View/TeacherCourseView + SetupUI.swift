@@ -45,7 +45,6 @@ extension TeacherCourseView {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-//        navigationController?.navigationBar.contentView
         if #available(iOS 15.0, *) {
             navigationController?.navigationBar.compactScrollEdgeAppearance = appearance
         } else {

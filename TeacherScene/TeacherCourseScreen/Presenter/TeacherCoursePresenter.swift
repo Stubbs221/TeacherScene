@@ -96,6 +96,19 @@ extension TeacherCoursePresenter: TeacherCourseInteractorOutput {
 }
 
 extension TeacherCoursePresenter: TeacherCourseViewOutput {
+    func userTappedCell(with indexPath: IndexPath, dataModel: DataModel) {
+        guard let nextEvent = dataModel.nextEvent else {
+            print("в моделе данных отсутствует ближайшая трансляция")
+            return
+        }
+        
+        if indexPath.section == 0 {
+            return router.showEventMedia(from: nextEvent)
+        } else {
+            return router.showEventMedia(from: dataModel.events[indexPath.row])
+        }
+    }
+    
     func userTappedOpenTaskButton(for task: Task) {
         self.router.showTaskModule(with: task)
     }

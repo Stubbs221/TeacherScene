@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SkeletonView
+//import SkeletonView
 
 protocol TeacherCourseViewInput {
     var output: TeacherCourseViewOutput? { get set }
@@ -21,6 +21,8 @@ protocol TeacherCourseViewOutput {
     func contactWithTelegramButtonTapped()
     
     func userTappedOpenTaskButton(for task: Task)
+    
+    func userTappedCell(with indexPath: IndexPath, dataModel: DataModel)
 }
 
 
@@ -48,14 +50,11 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
 
         setupUI()
         setupNavigation()
-        teacherCourseTableView.showSkeleton(usingColor: .wetAsphalt, transition: .crossDissolve(0.25))
+//        teacherCourseTableView.showSkeleton(usingColor: .wetAsphalt, transition: .crossDissolve(0.25))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        teacherCourseTableView.isSkeletonable = true
-        
-//        teacherCourseTableView.showAnimatedSkeleton(usingColor: .concrete, transition: .crossDissolve(0.25))
     }
     
     lazy var tableViewHeader: UITableViewHeaderFooterView = {
@@ -71,16 +70,10 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
         tableView.register(TeacherCourseTableViewSectionHeader.self, forHeaderFooterViewReuseIdentifier: TeacherCourseTableViewSectionHeader.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.allowsSelection = true
-
         tableView.tableHeaderView = tableViewHeader
-        
-        
-        
         tableView.backgroundColor = UIColor(named: "appBackgroundWhite")
         tableView.separatorColor = .clear
         tableView.showsVerticalScrollIndicator = false
-
         return tableView
     }()
     
@@ -93,11 +86,5 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
         #warning("добавить сообщение пользователю что данные не пришли с сети")
     }
     
-    func changeIsSelectedCellState(with indexPath: IndexPath, state: Bool) {
-        if indexPath.section == 0 {
-            self.dataModel?.nextEvent?.isCellSelected = state
-        } else {
-            self.dataModel?.events[indexPath.row].isCellSelected = state
-        }
-    }
+    
 }

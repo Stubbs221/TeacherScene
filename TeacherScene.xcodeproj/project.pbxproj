@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4D28FD28F3F5CB00F12DFE /* TeacherCourseTableViewCell + Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4D28FC28F3F5CB00F12DFE /* TeacherCourseTableViewCell + Actions.swift */; };
 		1B8F932D28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F932C28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift */; };
 		1B8F932F28E17D030021DCED /* ContactTelegramTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8F932E28E17D030021DCED /* ContactTelegramTableViewHeader.swift */; };
 		1BCEAB7828E8CB2300FC9821 /* TeacherCourseTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCEAB7728E8CB2300FC9821 /* TeacherCourseTableViewSectionHeader.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B4D28FC28F3F5CB00F12DFE /* TeacherCourseTableViewCell + Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeacherCourseTableViewCell + Actions.swift"; sourceTree = "<group>"; };
 		1B8F932C28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeacherCourseView + SetupUI.swift"; sourceTree = "<group>"; };
 		1B8F932E28E17D030021DCED /* ContactTelegramTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTelegramTableViewHeader.swift; sourceTree = "<group>"; };
 		1BCEAB7728E8CB2300FC9821 /* TeacherCourseTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCourseTableViewSectionHeader.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				1BF6DAF628CC67C400A39EBA /* TeacherCourseView.swift */,
 				1B8F932C28E17BEF0021DCED /* TeacherCourseView + SetupUI.swift */,
 				1BD5F2E028E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift */,
+				1B4D28FC28F3F5CB00F12DFE /* TeacherCourseTableViewCell + Actions.swift */,
 				1B8F932E28E17D030021DCED /* ContactTelegramTableViewHeader.swift */,
 				1BD5F2DE28E38F58007CC6E5 /* TeacherCourseView + Extensions.swift */,
 				1BCEAB7728E8CB2300FC9821 /* TeacherCourseTableViewSectionHeader.swift */,
@@ -405,6 +408,7 @@
 				1BF6DAD928CC639300A39EBA /* SceneDelegate.swift in Sources */,
 				1BF6DB0328CC683700A39EBA /* TeacherPaywallInteractor.swift in Sources */,
 				1BF6DB0528CC684400A39EBA /* TeacherPaywallRouter.swift in Sources */,
+				1B4D28FD28F3F5CB00F12DFE /* TeacherCourseTableViewCell + Actions.swift in Sources */,
 				1BD5F2E128E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift in Sources */,
 				1BF6DB0B28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift in Sources */,
 				1BF6DAFD28CC67FC00A39EBA /* TeacherCourseRouter.swift in Sources */,

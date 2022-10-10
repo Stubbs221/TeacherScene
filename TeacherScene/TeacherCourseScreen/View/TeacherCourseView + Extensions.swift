@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SkeletonView
+//import SkeletonView
 
 extension TeacherCourseView: ContactTelegramTableViewHeaderDelegate {
     func contactWithTelegramButton() {
@@ -32,14 +32,18 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
         defer {
             teacherCourseTableView.scrollToRow(at: index, at: .top, animated: true)
         }
+        
         guard let selectedIndex = selectedIndex else {
 //            срабатывает если никакая ячейка до этого не была выбрана
             self.selectedIndex = index
 //            меняется стейт "ячейка открыта/закрыта" в моделе данных для вьюхи
             changeIsSelectedCellState(with: selectedIndex!, state: true)
-//            self.dataModel?.events[selectedIndex!.row].isCellSelected = true
-
+            
             teacherCourseTableView.beginUpdates()
+            
+//            UIView.animate(withDuration: 0.25, delay: 0.1) {
+//                cell.expandeCellButton.imageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+//            }
             teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
             teacherCourseTableView.endUpdates()
             return
@@ -49,21 +53,25 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
 //            срабатывает если повторно попытаться открыть одну и туже ячейку( должна скрыться)
 //            индексу выбранной ячейки присваивается нил, так как активная ячейка должна скрыться
             changeIsSelectedCellState(with: selectedIndex, state: false)
-//            self.dataModel?.events[selectedIndex.row].isCellSelected = false
             self.selectedIndex = nil
             
             teacherCourseTableView.beginUpdates()
-                teacherCourseTableView.reloadRows(at: [], with: .none)
+            UIView.animate(withDuration: 0.25, delay: 0.1, options: .curveEaseOut) {
+                
+                teacherCourseTableViewCell.expandeCellButton.imageView?.transform = CGAffineTransform.identity
+//
+            }
+            teacherCourseTableView.reloadRows(at: [], with: .none)
             teacherCourseTableView.endUpdates()
-//            }
-
         } else {
 //            срабатывает в случае если уже была открыта одна ячейка и пользователь открыл другую
-            
 //            первой присваиваем стейт "ячейка выбрана" - false
             changeIsSelectedCellState(with: self.selectedIndex!, state: false)
-//            self.dataModel?.events[selectedIndex.row].isCellSelected = false
             teacherCourseTableView.beginUpdates()
+//            UIView.animate(withDuration: 0.25, delay: 0.1) {
+//                let cell = self.teacherCourseTableView.cellForRow(at: self.selectedIndex!) as! TeacherCourseTableViewCell
+//                cell.expandeCellButton.imageView?.transform = CGAffineTransform.identity
+//            }
             teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
             teacherCourseTableView.endUpdates()
             
@@ -71,9 +79,12 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
             
 //            второй присваиваем стейт "ячейка выбрана" - true
             changeIsSelectedCellState(with: self.selectedIndex!, state: true)
-//            self.dataModel?.events[selectedIndex.row].isCellSelected = true
-                        
+            
             teacherCourseTableView.beginUpdates()
+//            UIView.animate(withDuration: 0.25, delay: 0.1) {
+//                let cell = self.teacherCourseTableView.cellForRow(at: self.selectedIndex!) as! TeacherCourseTableViewCell
+//                cell.expandeCellButton.imageView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+//            }
             teacherCourseTableView.reloadRows(at: [self.selectedIndex!], with: .none)
             teacherCourseTableView.endUpdates()
         }

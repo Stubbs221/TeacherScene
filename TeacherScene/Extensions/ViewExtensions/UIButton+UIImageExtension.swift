@@ -43,6 +43,16 @@ extension UIButton {
 
 extension UIImage {
     
+    static func imageWithColor(color: UIColor, size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(CGRect(origin: CGPoint.zero, size: size))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        guard let image = image else { return UIImage()}
+        return image
+    }
+    
     static func pixel(ofColor color: UIColor) -> UIImage {
 
      let lightModeImage = UIImage.generatePixel(ofColor: color, userInterfaceStyle: .light)
@@ -85,3 +95,22 @@ extension UIImage {
     }
 }
 
+extension UISegmentedControl {
+    func removeBorders() {
+            setBackgroundImage(imageWithColor(color: backgroundColor ?? .clear), for: .normal, barMetrics: .default)
+            setBackgroundImage(imageWithColor(color: selectedSegmentTintColor!), for: .selected, barMetrics: .default)
+            setDividerImage(imageWithColor(color: UIColor.clear), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        }
+
+        
+        private func imageWithColor(color: UIColor) -> UIImage {
+            let rect = CGRect(x: 0.0, y: 0.0, width:  1.0, height: 1.0)
+            UIGraphicsBeginImageContext(rect.size)
+            let context = UIGraphicsGetCurrentContext()
+            context!.setFillColor(color.cgColor);
+            context!.fill(rect);
+            let image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            return image!
+        }
+}

@@ -19,12 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //      MARK: Choose one as initial view
         
 //       1. - TeacherPaywallScreen:
-//        let teacherPaywallScreen = TeacherPaywallModuleBuilder.build(usingNavigationFactory: NavigationBuilder.build)
+        let teacherPaywallScreen = TeacherPaywallModuleBuilder.build(usingNavigationFactory: NavigationBuilder.build)
         
 //       2. - TeacherCourseScreen:
         let teacherCourseScreen = TeacherCourseModuleBuilder.build(usingNavgationFactory: NavigationBuilder.build)
         
-        window?.rootViewController = TeacherTabBarView()
+//        window?.rootViewController = TeacherTabBarView()
+        window?.rootViewController = teacherPaywallScreen
         window?.makeKeyAndVisible()
         
     }

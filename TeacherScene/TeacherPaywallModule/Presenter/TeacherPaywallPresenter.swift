@@ -34,6 +34,18 @@ class TeacherPaywallPresenter {
 
 
 extension TeacherPaywallPresenter: TeacherPaywallViewOutput {
+    func userDidClickedOnPrivacyPolicyButton() {
+        router.showPrivacyPolicyScreen()
+    }
+    
+    func userDidClickOnTermsOfUseButton() {
+        router.showTermsOfUseScreen()
+    }
+    
+    func userDidClickedOnBuySubscriptionButton() {
+        router.showBuysubscriptionScreen()
+    }
+    
     
 }
 

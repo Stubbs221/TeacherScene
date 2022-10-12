@@ -14,7 +14,9 @@ class TeacherFeaturesCollectionView: UICollectionView, UICollectionViewDataSourc
     init(parentVC: TeacherPaywallViewInput) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        
         self.teacherPaywallView = parentVC
+        
         super.init(frame: .zero, collectionViewLayout: layout)
         self.backgroundColor = UIColor(named: "appBlueColor")
         delegate = self
@@ -39,20 +41,24 @@ class TeacherFeaturesCollectionView: UICollectionView, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TeacherFeaturesCell.identifier, for: indexPath) as? TeacherFeaturesCell,
-            let view = teacherPaywallView else { return UICollectionViewCell() }
-        cell.featureImage.image = view.teacherFeatureDataArray[indexPath.row].featureImage
-        cell.featureNameLabel.text = view.teacherFeatureDataArray[indexPath.row].featureName
-        cell.featureDescriptionTextView.text = view.teacherFeatureDataArray[indexPath.row].featureDescription
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TeacherFeaturesCell.identifier, for: indexPath) as? TeacherFeaturesCell else { return UICollectionViewCell() }
+        cell.featureImage.image = teacherPaywallView!.teacherFeatureDataArray[indexPath.row].featureImage
+        cell.featureNameLabel.text = teacherPaywallView!.teacherFeatureDataArray[indexPath.row].featureName
+        cell.featureDescriptionTextView.text = teacherPaywallView!.teacherFeatureDataArray[indexPath.row].featureDescription
         return cell
     }
     
 
+    
+
+    
+    
     struct Constants {
-        static let leftDistanceToView: CGFloat = 40
-        static let rightDistanceToView: CGFloat = 60
+        static let leftDistanceToView: CGFloat = 16
+        static let rightDistanceToView: CGFloat = 5
         static let teacherFeatureMinimumLineSpacing: CGFloat = 10
         static let teacherFeatureItemLength = (UIScreen.main.bounds.width - Constants.leftDistanceToView - Constants.rightDistanceToView - teacherFeatureMinimumLineSpacing )
     }
+    
 
 }

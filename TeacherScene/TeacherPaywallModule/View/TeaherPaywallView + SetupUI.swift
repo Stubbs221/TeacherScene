@@ -45,69 +45,15 @@ extension TeacherPaywallView {
             teacherFeaturesFooterView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
             teacherFeaturesFooterView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor),
             teacherFeaturesFooterView.topAnchor.constraint(equalTo: priceLabel.bottomAnchor),
-//            teacherFeaturesFooterView.bottomAnchor.constraint(equalTo: safeare.bottomAnchor, constant: -20)
             view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: teacherFeaturesFooterView.bottomAnchor, multiplier: 1.0)
         ])
     }
     
     func setupNavigation() {
-        //        navigationController?.navigationBar.topItem?.title = "Курс"
+        
         navigationController?.navigationBar.prefersLargeTitles = false
-        //        navigationController?.navigationBar.isTranslucent = false
-    }
-    
-    func setupBackground(with state: Bool) {
-            let gradient = CAGradientLayer()
-            var bounds = view.bounds
-            gradient.frame = bounds
-            gradient.colors = [UIColor.hexStringToUIColor(hex: "C36BE5").cgColor, UIColor.hexStringToUIColor(hex: "7478DC").cgColor]
-            gradient.startPoint = CGPoint(x: 0, y: 0)
-            gradient.endPoint = CGPoint(x: 1, y: 0)
-            
-            if let image = getImage(from: gradient) {
-                
-                if !state  {
-                    UIView.transition(with: backgroundImageView,
-                                      duration: 0.75,
-                                      options: .transitionCrossDissolve,
-                                      animations: { self.backgroundImageView.image = image },
-                                      completion: nil)
-                } else {
-                    UIView.transition(with: backgroundImageView,
-                                      duration: 0.75,
-                                      options: .transitionCrossDissolve,
-                                      animations: { self.backgroundImageView.image =  UIImage.imageWithColor(color: UIColor.hexStringToUIColor(hex: "C36BE5"), size: self.view.bounds.size)},
-                                      completion: nil)
-            }
-        }
         
     }
     
-    func changePriceLabelTitle(with state: Bool) {
-        if !state  {
-            UIView.transition(with: priceLabel,
-                              duration: 0.75,
-                              options: .transitionCrossDissolve,
-                              animations: { self.priceLabel.text = "299 руб/мес" },
-                              completion: nil)
-        } else {
-            UIView.transition(with: priceLabel,
-                              duration: 0.75,
-                              options: .transitionCrossDissolve,
-                              animations: { self.priceLabel.text = "449 руб/мес"},
-                              completion: nil)
-        }
-    }
     
-    func getImage(from gradientLayer: CAGradientLayer) -> UIImage? {
-            var gradientImage: UIImage?
-            UIGraphicsBeginImageContext(gradientLayer.frame.size)
-            if let context = UIGraphicsGetCurrentContext() {
-                gradientLayer.render(in: context)
-                gradientImage = UIGraphicsGetImageFromCurrentImageContext()?.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch)
-    
-            }
-            UIGraphicsEndImageContext()
-            return gradientImage
-        }
 }

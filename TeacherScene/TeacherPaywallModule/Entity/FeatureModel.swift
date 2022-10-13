@@ -5,7 +5,6 @@
 //  Created by Vasily Maslov on 10.09.2022.
 //
 
-import Foundation
 import UIKit
 
 struct FeatureModel {

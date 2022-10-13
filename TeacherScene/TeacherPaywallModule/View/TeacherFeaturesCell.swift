@@ -31,6 +31,8 @@ class TeacherFeaturesCell: UICollectionViewCell {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.font = UIFont.systemFont(ofSize: 13)
+        textView.isEditable = false
+        textView.isUserInteractionEnabled = false
         return textView
     }()
     

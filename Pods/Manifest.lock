@@ -1,0 +1,20 @@
+PODS:
+  - SCPageControl (0.4.0)
+  - SkeletonView (1.30.3)
+
+DEPENDENCIES:
+  - SCPageControl
+  - SkeletonView
+
+SPEC REPOS:
+  trunk:
+    - SCPageControl
+    - SkeletonView
+
+SPEC CHECKSUMS:
+  SCPageControl: 8a8dfbba7d7d8c66487a317cb4c4578a7e4af27a
+  SkeletonView: f5b099c708e42a278079a12bcaaf71c303be65a3
+
+PODFILE CHECKSUM: 35309fbefbbf92fe282fb6c95af76bef4944c0f9
+
+COCOAPODS: 1.11.3

@@ -34,7 +34,7 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         view.addSubview(backgroundImageView)
         backgroundImageView.addSubview(teacherFeaturesCollectionView)
         backgroundImageView.addSubview(teacherFeaturesHeaderView)
-        backgroundImageView.addSubview(pageConrol)
+        backgroundImageView.addSubview(pageControl)
         backgroundImageView.addSubview(priceLabel)
         backgroundImageView.addSubview(teacherFeaturesFooterView)
         setupUI()
@@ -101,7 +101,13 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.numberOfPages = 5
         pageControl.currentPage = 1
-        
+
+        return pageControl
+    }()
+    lazy var pageControl: ExtendedPageControll = {
+        let pageControl = ExtendedPageControll(numberOfPages: self.teacherFeatureDataArray.count, currentPage: 0, isCircular: true)
+        pageControl.currentIndicatorColor = .black
+//        pageControl.translatesAutoresizingMaskIntoConstraints = false
         return pageControl
     }()
     

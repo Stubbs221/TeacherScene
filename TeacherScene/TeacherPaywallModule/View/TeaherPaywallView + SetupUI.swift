@@ -31,13 +31,17 @@ extension TeacherPaywallView {
         ])
         
         NSLayoutConstraint.activate([
-            pageConrol.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17),
-            pageConrol.topAnchor.constraint(equalTo: teacherFeaturesCollectionView.bottomAnchor),
-            pageConrol.heightAnchor.constraint(equalToConstant: 20)])
+//            pageControl.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17),
+//            pageControl.topAnchor.constraint(equalTo: teacherFeaturesCollectionView.bottomAnchor),
+//            pageControl.heightAnchor.constraint(equalToConstant: 10),
+//            pageControl.widthAnchor.constraint(equalToConstant: 75)
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pageControl.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
         
         NSLayoutConstraint.activate([
             priceLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17),
-            priceLabel.topAnchor.constraint(equalTo: pageConrol.bottomAnchor, constant: 20),
+            priceLabel.topAnchor.constraint(equalTo: teacherFeaturesCollectionView.bottomAnchor, constant: 20),
             priceLabel.heightAnchor.constraint(equalToConstant: 30)])
         
         NSLayoutConstraint.activate([

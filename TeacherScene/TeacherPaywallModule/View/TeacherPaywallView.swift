@@ -10,7 +10,7 @@ import SCPageControl
 
 protocol TeacherPaywallViewInput: AnyObject {
     var output: TeacherPaywallViewOutput? { get set }
-    var teacherFeatureDataArray: [FeatureModel] { get set }
+    var teacherStarterPackFeatureDataArray: [FeatureModel] { get set }
 }
 
 protocol TeacherPaywallViewOutput {
@@ -25,8 +25,11 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
     
     var output: TeacherPaywallViewOutput?
     
-    var teacherFeatureDataArray: [FeatureModel] = [FeatureModel](repeating: FeatureModel(image: UIImage(named: "teacherImage")!, name: "Опытный наставник", description: "15 лет опыта работа \nФакты о репетиторе \nФакты о репетиторе "), count: 5)
+    var teacherStarterPackFeatureDataArray: [FeatureModel] = [FeatureModel](repeating: FeatureModel(image: UIImage(named: "teacherImage")!, name: "Опытный наставник", description: "15 лет опыта работа \nФакты о репетиторе \nФакты о репетиторе ", backgroundColor: .white), count: 5)
     
+    var teacherFullFeatureDataArray: [FeatureModel] = [FeatureModel](repeating: FeatureModel(image: UIImage(named: "taskMockImage")!, name: "Опытный наставник", description: "15 лет опыта работа \nDungeon master \nPerfomance artist", backgroundColor: .purpleEBColorSecond), count: 5)
+    
+//    var dataToScrollView: [FeatureModel] = []
     var timer = Timer()
     
     override func viewDidLoad() {
@@ -35,7 +38,7 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
 //        teacherFeaturesCollectionView.dataSource = self
         
         view.addSubview(backgroundImageView)
-        self.updateTeacherFeaturesScrollView(with: teacherFeatureDataArray)
+        
 //        backgroundImageView.addSubview(teacherFeaturesCollectionView)
         backgroundImageView.addSubview(teacherFeaturesHeaderView)
         backgroundImageView.addSubview(teacherFeaturesScrollView)
@@ -51,6 +54,8 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        self.dataToScrollView = self.teacherStarterPackFeatureDataArray
+        self.updateTeacherFeaturesScrollView(with: teacherStarterPackFeatureDataArray)
         timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true, block: { [ weak self ] _ in
             guard let self = self else { return }
             let scrollWidth = self.teacherFeaturesScrollView.bounds.width
@@ -90,24 +95,6 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         return imageView
     }()
     
-    lazy var teacherFeaturesCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        
-        layout.minimumLineSpacing = 20
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        collectionView.isPagingEnabled = true
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(TeacherFeaturesCell.self, forCellWithReuseIdentifier: TeacherFeaturesCell.identifier)
-        
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: Constants.leftDistanceToView, bottom: 0, right: Constants.rightDistanceToView)
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.showsHorizontalScrollIndicator = false
-        return collectionView
-    }()
-    
     lazy var teacherFeaturesHeaderView: PurchaseDescriptionHeaderView = {
         let view = PurchaseDescriptionHeaderView()
         view.delegate = self
@@ -129,27 +116,13 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         return label
     }()
     
-//    lazy var pageConrol: UIPageControl = {
-//        let pageControl = UIPageControl()
-//        pageControl.translatesAutoresizingMaskIntoConstraints = false
-//        pageControl.numberOfPages = 5
-//        pageControl.currentPage = 1
-//
-//        return pageControl
-//    }()
-//    lazy var pageControl: ExtendedPageControll = {
-//        let pageControl = ExtendedPageControll(numberOfPages: self.teacherFeatureDataArray.count, currentPage: 0, isCircular: true)
-//        pageControl.currentIndicatorColor = .black
-////        pageControl.translatesAutoresizingMaskIntoConstraints = false
-//        return pageControl
-//    }()
     lazy var teacherFeaturesScrollView: UIScrollView = {
         
         
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .clear
-        scrollView.contentSize = CGSize(width: ((UIScreen.main.bounds.width / 1.4) * CGFloat(teacherFeatureDataArray.count) + CGFloat(10 * (teacherFeatureDataArray.count) + 30)), height: UIScreen.main.bounds.height / 2.44)
+        scrollView.contentSize = CGSize(width: ((UIScreen.main.bounds.width / 1.4) * CGFloat(teacherStarterPackFeatureDataArray.count) + CGFloat(10 * (teacherStarterPackFeatureDataArray.count) + 30)), height: UIScreen.main.bounds.height / 2.44)
         scrollView.isPagingEnabled = true
         scrollView.clipsToBounds = false
         scrollView.delegate = self
@@ -166,11 +139,22 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         sc.frame = CGRect(x: 0, y: 0, width: 140, height: 10)
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.scp_style = .SCNormal
-        sc.set_view(self.teacherFeatureDataArray.count, current: 0, current_color: .white, disable_color: UIColor.hexStringToUIColor(hex: "D9D9D9"))
+        sc.set_view(self.teacherStarterPackFeatureDataArray.count, current: 0, current_color: .white, disable_color: UIColor.hexStringToUIColor(hex: "D9D9D9"))
         return sc
     }()
     
     func updateTeacherFeaturesScrollView(with data: [FeatureModel]) {
+//        self.dataToScrollView = data
+        for subview in self.teacherFeaturesScrollView.subviews {
+            subview.removeFromSuperview()
+        }
+        
+
+//        self.sc.removeFromSuperview()
+//        view.addSubview(sc)
+//        self.sc.set_view(0, current: 0, current_color: .clear, disable_color: .clear)
+//        self.sc.set_view(data.count, current: 0, current_color: .white, disable_color: UIColor.hexStringToUIColor(hex: "D9D9D9"))
+        
         for (i, feature) in data.enumerated() {
             teacherFeaturesScrollView.addSubview(addPage(with: feature, at: i))
         }
@@ -183,7 +167,7 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         let contentView: UIView = {
             let view = UIView()
             view.translatesAutoresizingMaskIntoConstraints = false
-            view.backgroundColor = .white
+            view.backgroundColor = feature.backgroundColor
             view.layer.cornerRadius = 18
             view.layer.shadowRadius = 3
             view.layer.shadowColor = UIColor.black.cgColor
@@ -220,6 +204,8 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
             textView.font = UIFont.systemFont(ofSize: 13)
             textView.isEditable = false
             textView.isUserInteractionEnabled = false
+            
+            textView.backgroundColor = feature.backgroundColor
             return textView
         }()
         
@@ -266,12 +252,7 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         case SCJAFlatBar
     }
     
-    struct Constants {
-        static let leftDistanceToView: CGFloat = 16
-        static let rightDistanceToView: CGFloat = 5
-        static let teacherFeatureMinimumLineSpacing: CGFloat = 10
-        static let teacherFeatureItemLength = (UIScreen.main.bounds.width - Constants.leftDistanceToView - Constants.rightDistanceToView - teacherFeatureMinimumLineSpacing )
-    }
+    
 }
 
 

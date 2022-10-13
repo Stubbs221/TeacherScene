@@ -14,9 +14,13 @@ struct FeatureModel {
     var featureName: String
     var featureDescription: String
     
-    init(image: UIImage, name: String, description: String) {
+//    property just for test
+    var backgroundColor: UIColor
+    
+    init(image: UIImage, name: String, description: String, backgroundColor: UIColor) {
         self.featureImage = image
         self.featureName = name
         self.featureDescription = description
+        self.backgroundColor = backgroundColor
     }
 }

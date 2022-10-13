@@ -25,11 +25,12 @@ extension TeacherPaywallView: UICollectionViewDelegate, UICollectionViewDataSour
         cell.featureNameLabel.text = teacherFeatureDataArray[indexPath.row].featureName
         cell.featureDescriptionTextView.text = teacherFeatureDataArray[indexPath.row].featureDescription
         
-        if pageControl.currentPage == indexPath.row {
-            guard let visible = self.teacherFeaturesCollectionView.visibleCells.first else { return cell}
-            guard let index = self.teacherFeaturesCollectionView.indexPath(for: visible)?.row else { return cell }
-            pageControl.currentPage = index
-        }
+        
+//        if pageControl.currentPage == indexPath.row {
+//            guard let visible = self.teacherFeaturesCollectionView.visibleCells.first else { return cell}
+//            guard let index = self.teacherFeaturesCollectionView.indexPath(for: visible)?.row else { return cell }
+//            pageControl.currentPage = index
+//        }
         return cell
     }
 
@@ -40,6 +41,12 @@ extension TeacherPaywallView: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     
+}
+
+extension TeacherPaywallView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        sc.scroll_did(teacherFeaturesScrollView)
+    }
 }
 
 // делегат хедера

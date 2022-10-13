@@ -24,31 +24,30 @@ extension TeacherPaywallView {
             teacherFeaturesHeaderView.heightAnchor.constraint(equalToConstant: 100)])
         
         NSLayoutConstraint.activate([
-            teacherFeaturesCollectionView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
-            teacherFeaturesCollectionView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor),
-            teacherFeaturesCollectionView.topAnchor.constraint(equalTo: teacherFeaturesHeaderView.bottomAnchor),
-            teacherFeaturesCollectionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2.42 + 20)
+            teacherFeaturesScrollView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17),
+            teacherFeaturesScrollView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 1.4 + 17),
+            teacherFeaturesScrollView.topAnchor.constraint(equalTo: teacherFeaturesHeaderView.bottomAnchor, constant: 16),
+            teacherFeaturesScrollView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2.42 + 20)
         ])
         
         NSLayoutConstraint.activate([
-//            pageControl.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17),
-//            pageControl.topAnchor.constraint(equalTo: teacherFeaturesCollectionView.bottomAnchor),
-//            pageControl.heightAnchor.constraint(equalToConstant: 10),
-//            pageControl.widthAnchor.constraint(equalToConstant: 75)
-            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pageControl.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+            sc.topAnchor.constraint(equalTo: teacherFeaturesScrollView.bottomAnchor),
+            sc.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
+            sc.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            sc.heightAnchor.constraint(equalToConstant: 10)])
         
         NSLayoutConstraint.activate([
             priceLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17),
-            priceLabel.topAnchor.constraint(equalTo: teacherFeaturesCollectionView.bottomAnchor, constant: 20),
+            priceLabel.topAnchor.constraint(equalTo: sc.bottomAnchor, constant: 30),
             priceLabel.heightAnchor.constraint(equalToConstant: 30)])
         
         NSLayoutConstraint.activate([
             teacherFeaturesFooterView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
             teacherFeaturesFooterView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor),
             teacherFeaturesFooterView.topAnchor.constraint(equalTo: priceLabel.bottomAnchor),
-            teacherFeaturesFooterView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor)])
+//            teacherFeaturesFooterView.bottomAnchor.constraint(equalTo: safeare.bottomAnchor, constant: -20)
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: teacherFeaturesFooterView.bottomAnchor, multiplier: 1.0)
+        ])
     }
     
     func setupNavigation() {

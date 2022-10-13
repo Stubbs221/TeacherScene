@@ -29,6 +29,7 @@ class TeacherPaywallFooterView: UIView {
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.setTitle("Купить подписку", for: .normal)
+//        button.heightAnchor.constraint(equalToConstant: 47).isActive = true
         button.addTarget(self, action: #selector(buySubscriptionButtonAction), for: .touchUpInside)
         return button
     }()
@@ -58,8 +59,9 @@ class TeacherPaywallFooterView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.alignment = .leading
-        stackView.spacing = 0
+        stackView.spacing = 10
         stackView.distribution = .fillProportionally
+        stackView.heightAnchor.constraint(equalToConstant: 35).isActive = true
         return stackView
     }()
     
@@ -68,9 +70,16 @@ class TeacherPaywallFooterView: UIView {
         buyButtonsFooterStackView.translatesAutoresizingMaskIntoConstraints = false
         buyButtonsFooterStackView.axis = .vertical
         buyButtonsFooterStackView.alignment = .leading
+        
         buyButtonsFooterStackView.spacing = 17
-        buyButtonsFooterStackView.setCustomSpacing(26, after: buySubscriptionButton)
-        buyButtonsFooterStackView.distribution = .fillProportionally
+        if UIScreen.main.bounds.height == 667 {
+            buyButtonsFooterStackView.setCustomSpacing(26, after: buySubscriptionButton)
+        } else {
+            buyButtonsFooterStackView.setCustomSpacing(50, after: buySubscriptionButton)
+        }
+
+        
+        buyButtonsFooterStackView.distribution = .fill
         return buyButtonsFooterStackView
     }()
     

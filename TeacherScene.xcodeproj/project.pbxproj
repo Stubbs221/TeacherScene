@@ -228,8 +228,8 @@
 		1BF6DAD528CC639300A39EBA /* TeacherScene */ = {
 			isa = PBXGroup;
 			children = (
-				1BF3187728EAF44700C46E47 /* TeacherTabBar */,
 				1BD5F2E228E6D8E3007CC6E5 /* Extensions */,
+				1BF3187728EAF44700C46E47 /* TeacherTabBar */,
 				1BF6DAEC28CC65B900A39EBA /* TeacherCourseScreen */,
 				1BF6DAEA28CC659F00A39EBA /* TeacherPaywallModule */,
 				1BF6DAD628CC639300A39EBA /* AppDelegate.swift */,

@@ -8,7 +8,7 @@
 import UIKit
 
 class TeacherPaywallModuleBuilder {
-    static func build(usingNavigationFactory factory: NavigationFactory) -> UIViewController {
+    static func build() -> UIViewController {
         let view = TeacherPaywallView()
         let interactor = TeacherPaywallInteractor()
         let router = TeacherPaywallRouter()
@@ -18,6 +18,6 @@ class TeacherPaywallModuleBuilder {
         view.output = presenter
         
         router.rootViewController = view
-        return factory(view)
+        return view
     }
 }

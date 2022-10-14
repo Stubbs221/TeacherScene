@@ -24,7 +24,8 @@ class TeacherTabBarView: UITabBarController {
         viewControllers = [
             TeacherCourseModuleBuilder.build(usingNavgationFactory: NavigationBuilder.build),
             TeacherCourseModuleBuilder.build(usingNavgationFactory: NavigationBuilder.build),
-            TeacherCourseModuleBuilder.build(usingNavgationFactory: NavigationBuilder.build)]
+            TeacherCourseModuleBuilder.build(usingNavgationFactory: NavigationBuilder.build)
+        ]
     }
 
     /*

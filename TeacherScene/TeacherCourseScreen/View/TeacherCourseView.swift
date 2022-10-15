@@ -23,6 +23,8 @@ protocol TeacherCourseViewOutput {
     func userTappedOpenTaskButton(for task: Task)
     
     func userTappedCell(with indexPath: IndexPath, dataModel: DataModel)
+    
+    func userSelectedAddEventToCalendat(with indexPath: IndexPath, dataModel: DataModel)
 }
 
 

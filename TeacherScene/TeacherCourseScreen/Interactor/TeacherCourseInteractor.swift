@@ -14,6 +14,8 @@ protocol TeacherCourseInteractorInput {
     var output: TeacherCourseInteractorOutput? { get set }
     
     func fetchData()
+    
+    func addEventToCalendar(from event: Event)
 }
 
 protocol TeacherCourseInteractorOutput: AnyObject {
@@ -22,6 +24,11 @@ protocol TeacherCourseInteractorOutput: AnyObject {
 }
 
 final class TeacherCourseInteractor: TeacherCourseInteractorInput {
+    func addEventToCalendar(from event: Event) {
+        #warning("тут приходит событие для добавления в календарь и тут же вызывать метод класса EventManager")
+        print("интерактор получил реквест о добавлении задачи в календарь")
+    }
+    
     weak var output: TeacherCourseInteractorOutput? {
         didSet {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {

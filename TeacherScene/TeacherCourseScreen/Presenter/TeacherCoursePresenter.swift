@@ -96,6 +96,20 @@ extension TeacherCoursePresenter: TeacherCourseInteractorOutput {
 }
 
 extension TeacherCoursePresenter: TeacherCourseViewOutput {
+    func userSelectedAddEventToCalendat(with indexPath: IndexPath, dataModel: DataModel) {
+        guard let nextEvent = dataModel.nextEvent else {
+            print("в моделе данных отсутствует ближайшая трансляция")
+            return
+        }
+        
+        if indexPath.section == 0 {
+            return self.interactor.addEventToCalendar(from: nextEvent)
+        } else {
+            return self.interactor.addEventToCalendar(from: dataModel.events[indexPath.row])
+        }
+        
+    }
+    
     func userTappedCell(with indexPath: IndexPath, dataModel: DataModel) {
         guard let nextEvent = dataModel.nextEvent else {
             print("в моделе данных отсутствует ближайшая трансляция")

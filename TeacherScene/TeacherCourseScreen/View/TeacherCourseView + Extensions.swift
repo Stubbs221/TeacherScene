@@ -95,6 +95,51 @@ extension TeacherCourseView: TeacherCourseTableViewCellDelegate {
 
 extension TeacherCourseView: UITableViewDelegate, UITableViewDataSource {
 
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let config = UIContextMenuConfiguration(
+            identifier: indexPath as NSCopying,
+            previewProvider: nil) { _ in
+                
+                let saveToCalendar = UIAction(title: "Сохранить в календарь", image: UIImage(systemName: "calendar.badge.plus"), identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                    guard let dataModel = self.dataModel else { return }
+                    self.output?.userSelectedAddEventToCalendat(with: indexPath, dataModel: dataModel)
+
+                }
+                
+                let openBroadcast = UIAction(title: "Открыть трансляцию", image: UIImage(systemName: "film"), identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
+                    guard let dataModel = self.dataModel else { return }
+                    self.output?.userTappedCell(with: indexPath, dataModel: dataModel)
+                }
+                
+                return UIMenu(title: "",
+                              image: nil,
+                              identifier: nil,
+                              options: UIMenu.Options.displayInline,
+                              children: [saveToCalendar, openBroadcast])
+            }
+        
+        return config
+    }
+    
+    func tableView(_ tableView: UITableView, previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        return makeTagretedPreview(for: configuration)
+    }
+    
+    func tableView(_ tableView: UITableView, previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        return makeTagretedPreview(for: configuration)
+    }
+    
+    private func makeTagretedPreview(for configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        guard let indexPath = configuration.identifier as? IndexPath else { return nil }
+        guard let cell = teacherCourseTableView.cellForRow(at: indexPath) as? TeacherCourseTableViewCell else { return nil }
+        let parameters = UIPreviewParameters()
+        parameters.backgroundColor = .clear
+        parameters.visiblePath = UIBezierPath(roundedRect: cell.lessonInfoView.bounds, cornerRadius: 20)
+        
+        return UITargetedPreview(view: cell.lessonInfoView, parameters: parameters)
+    }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let rowHeight: CGFloat = 170
         guard let dataModel = dataModel else { return rowHeight }

@@ -170,24 +170,16 @@ extension TeacherCourseTableViewCell {
                 self.expandeCellButton.imageView?.transform = CGAffineTransform(rotationAngle: -.pi)
             }
         }
-//        else {
-//            UIView.animate(withDuration: 1, delay: 0) {
-//                self.expandeCellButton.imageView?.transform = CGAffineTransform.identity
-//            }
-//        }
     }
 
-//    func animate() {
-//        UIView.animate(withDuration: 0.5, delay: 1, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: .curveEaseIn) {
-//            self.contentView.layoutIfNeeded()
-//        }
-//    }
 
+    
+    
     @objc func expandCellButtonPressed(_ sender: UIButton) {
         print("pressed button with index \(String(describing: self.index))")
         if let delegate = delegate,
             let index = index{
-    
+            
             delegate.teacherCourseTableViewCell(self, expandButtonTappedFor: index)
         }
     }

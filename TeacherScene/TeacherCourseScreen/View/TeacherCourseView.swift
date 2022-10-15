@@ -88,5 +88,28 @@ class TeacherCourseView: UIViewController, TeacherCourseViewInput  {
         #warning("добавить сообщение пользователю что данные не пришли с сети")
     }
     
-    
+    func showAddToCalendarAlert(at indexPath: IndexPath) {
+        var event: Event
+        if indexPath.section == 0 {
+            guard let nextEvent = dataModel?.nextEvent else { return }
+            event = nextEvent
+        } else {
+            guard let selectedEvent = dataModel?.events[indexPath.row] else { return }
+            event = selectedEvent
+        }
+        let alertController = UIAlertController(title: "Трансляция начнется \(event.eventDate) в  \(event.eventTime)", message: "Добавить напоминание в календарь?", preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "В другой раз", style: .destructive)
+        let addToCalendar = UIAlertAction(title: "Да, давай", style: .default) { _ in
+            guard let dataModel = self.dataModel else { return }
+            self.output?.userSelectedAddEventToCalendat(with: indexPath, dataModel: dataModel)
+        }
+        
+        alertController.addAction(addToCalendar)
+        alertController.addAction(cancel)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+
 }

@@ -108,7 +108,11 @@ extension TeacherCourseView: UITableViewDelegate, UITableViewDataSource {
                 
                 let openBroadcast = UIAction(title: "Открыть трансляцию", image: UIImage(systemName: "film"), identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
                     guard let dataModel = self.dataModel else { return }
-                    self.output?.userTappedCell(with: indexPath, dataModel: dataModel)
+                    if indexPath.section == 0 || dataModel.events[indexPath.row].haveRecordedBroadcast == false {
+                        self.showAddToCalendarAlert(at: indexPath)
+                    } else {
+                        self.output?.userTappedCell(with: indexPath, dataModel: dataModel)
+                    }
                 }
                 
                 return UIMenu(title: "",
@@ -178,7 +182,13 @@ extension TeacherCourseView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let dataModel = dataModel else { return }
-        output?.userTappedCell(with: indexPath, dataModel: dataModel)
+        
+        if indexPath.section == 0 || dataModel.events[indexPath.row].haveRecordedBroadcast == false {
+            showAddToCalendarAlert(at: indexPath)
+        } else {
+            output?.userTappedCell(with: indexPath, dataModel: dataModel)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

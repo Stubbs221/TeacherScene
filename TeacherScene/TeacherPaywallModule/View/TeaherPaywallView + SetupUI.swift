@@ -31,14 +31,20 @@ extension TeacherPaywallView {
         ])
         
         NSLayoutConstraint.activate([
-            sc.topAnchor.constraint(equalTo: teacherFeaturesScrollView.bottomAnchor),
-            sc.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
-            sc.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            sc.heightAnchor.constraint(equalToConstant: 10)])
+            scForFirstSubscriptionPlan.topAnchor.constraint(equalTo: teacherFeaturesScrollView.bottomAnchor),
+            scForFirstSubscriptionPlan.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
+            scForFirstSubscriptionPlan.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            scForFirstSubscriptionPlan.heightAnchor.constraint(equalToConstant: 10)])
+        
+        NSLayoutConstraint.activate([
+            scForSecondSubscriptionPlan.topAnchor.constraint(equalTo: teacherFeaturesScrollView.bottomAnchor),
+            scForSecondSubscriptionPlan.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
+            scForSecondSubscriptionPlan.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            scForSecondSubscriptionPlan.heightAnchor.constraint(equalToConstant: 10)])
         
         NSLayoutConstraint.activate([
             priceLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17),
-            priceLabel.topAnchor.constraint(equalTo: sc.bottomAnchor, constant: 30),
+            priceLabel.topAnchor.constraint(equalTo: teacherFeaturesScrollView.bottomAnchor, constant: 40),
             priceLabel.heightAnchor.constraint(equalToConstant: 30)])
         
         NSLayoutConstraint.activate([

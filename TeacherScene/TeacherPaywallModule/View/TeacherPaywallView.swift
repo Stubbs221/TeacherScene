@@ -27,7 +27,7 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
     
     var teacherStarterPackFeatureDataArray: [FeatureModel] = [FeatureModel](repeating: FeatureModel(image: UIImage(named: "teacherImage")!, name: "Опытный наставник", description: "15 лет опыта работа \nФакты о репетиторе \nФакты о репетиторе ", backgroundColor: .white), count: 5)
     
-    var teacherFullFeatureDataArray: [FeatureModel] = [FeatureModel](repeating: FeatureModel(image: UIImage(named: "taskMockImage")!, name: "Опытный наставник", description: "15 лет опыта работа \nDungeon master \nPerfomance artist", backgroundColor: .white), count: 5)
+    var teacherFullFeatureDataArray: [FeatureModel] = [FeatureModel](repeating: FeatureModel(image: UIImage(named: "taskMockImage")!, name: "Опытный наставник", description: "15 лет опыта работа \nDungeon master \nPerfomance artist", backgroundColor: .white), count: 3)
     
     var timer = Timer()
     
@@ -37,7 +37,10 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         
         backgroundImageView.addSubview(teacherFeaturesHeaderView)
         backgroundImageView.addSubview(teacherFeaturesScrollView)
-        backgroundImageView.addSubview(sc)
+//        pageView для первого плана подписки
+        backgroundImageView.addSubview(scForFirstSubscriptionPlan)
+//        pageView для второго плана подписки
+        backgroundImageView.addSubview(scForSecondSubscriptionPlan)
         backgroundImageView.addSubview(priceLabel)
         backgroundImageView.addSubview(teacherFeaturesFooterView)
         setupUI()
@@ -49,7 +52,7 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.updateTeacherFeaturesScrollView(with: teacherStarterPackFeatureDataArray)
-        changeScrollViewOffsetUsingTimer()
+//        changeScrollViewOffsetUsingTimer()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -102,13 +105,25 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         return scrollView
     }()
     
-    lazy var sc: SCPageControlView = {
+    lazy var scForFirstSubscriptionPlan: SCPageControlView = {
         let sc = SCPageControlView()
         
-        sc.frame = CGRect(x: 0, y: 0, width: 140, height: 10)
+        sc.frame = CGRect(x: 0, y: 0, width: self.teacherStarterPackFeatureDataArray.count * 28, height: 10)
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.scp_style = .SCNormal
         sc.set_view(self.teacherStarterPackFeatureDataArray.count, current: 0, current_color: .white, disable_color: UIColor.hexStringToUIColor(hex: "D9D9D9"))
+        
+        return sc
+    }()
+    
+    lazy var scForSecondSubscriptionPlan: SCPageControlView = {
+        let sc = SCPageControlView()
+        
+        sc.frame = CGRect(x: 0, y: 0, width: self.teacherFullFeatureDataArray.count * 28, height: 10)
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        sc.scp_style = .SCNormal
+        sc.set_view(self.teacherFullFeatureDataArray.count, current: 0, current_color: .white, disable_color: UIColor.hexStringToUIColor(hex: "D9D9D9"))
+        sc.isHidden = true
         return sc
     }()
     

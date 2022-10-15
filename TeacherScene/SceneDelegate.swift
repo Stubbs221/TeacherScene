@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let teacherCourseScreen = TeacherCourseModuleBuilder.build(usingNavgationFactory: NavigationBuilder.build)
         
 //        window?.rootViewController = TeacherTabBarView()
-        window?.rootViewController = teacherCourseScreen
+        window?.rootViewController = teacherPaywallScreen
         window?.makeKeyAndVisible()
         
     }

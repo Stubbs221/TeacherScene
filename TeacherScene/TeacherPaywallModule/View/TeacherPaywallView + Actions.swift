@@ -9,13 +9,33 @@ import UIKit
 
 extension TeacherPaywallView {
     func updateTeacherFeaturesScrollView(with data: [FeatureModel]) {
+        
+        if data.count == teacherStarterPackFeatureDataArray.count {
+            scForFirstSubscriptionPlan.isHidden = false
+            scForSecondSubscriptionPlan.isHidden = true
+        } else {
+            scForFirstSubscriptionPlan.isHidden = true
+            scForSecondSubscriptionPlan.isHidden = false
+        }
+        
+        self.changeScrollViewOffsetToZero()
+        
         for subview in self.teacherFeaturesScrollView.subviews {
             subview.removeFromSuperview()
         }
-
+        
+        self.timer.invalidate()
+    
+        self.timer = Timer()
+        
         for (i, feature) in data.enumerated() {
             teacherFeaturesScrollView.addSubview(addPage(with: feature, at: i))
         }
+        
+        self.teacherFeaturesScrollView.contentSize = CGSize(width: ((UIScreen.main.bounds.width / 1.4) * CGFloat(data.count) + CGFloat(10 * (data.count))), height: UIScreen.main.bounds.height / 2.44)
+        
+        
+        self.changeScrollViewOffsetUsingTimer()
     }
     
     func addPage(with feature: FeatureModel, at position: Int) -> UIView {
@@ -123,6 +143,10 @@ extension TeacherPaywallView {
                 self.teacherFeaturesScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
         })
+    }
+    
+    func changeScrollViewOffsetToZero() {
+        self.teacherFeaturesScrollView.contentOffset = CGPoint(x: 0, y: 0)
     }
     
     func setupBackground(with state: Bool) {

@@ -590,8 +590,8 @@
             filePath = "TeacherScene/TeacherPaywallModule/View/TeacherPaywallView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "teacherFeaturesScrollView"
             landmarkType = "24">
          </BreakpointContent>

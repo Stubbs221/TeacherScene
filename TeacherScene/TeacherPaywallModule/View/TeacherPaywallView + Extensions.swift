@@ -10,7 +10,8 @@ import UIKit
 
 extension TeacherPaywallView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        sc.scroll_did(teacherFeaturesScrollView)
+        
+        scForFirstSubscriptionPlan.scroll_did(teacherFeaturesScrollView)
     }
 }
 

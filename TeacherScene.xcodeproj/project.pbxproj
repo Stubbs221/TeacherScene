@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B1A66B328F8A84B00D6ACEA /* TeacherPaywallView + Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A66B228F8A84B00D6ACEA /* TeacherPaywallView + Actions.swift */; };
+		1B283A2328FC0CDD00B900D9 /* UITextView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B283A2228FC0CDD00B900D9 /* UITextView + Extension.swift */; };
 		1B4D28FD28F3F5CB00F12DFE /* TeacherCourseTableViewCell + Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4D28FC28F3F5CB00F12DFE /* TeacherCourseTableViewCell + Actions.swift */; };
 		1B4D290628F48CF200F12DFE /* PurchaseButtonsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4D28FF28F48CF200F12DFE /* PurchaseButtonsFooterView.swift */; };
 		1B4D290728F48CF200F12DFE /* TeacherPaywallFooterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4D290128F48CF200F12DFE /* TeacherPaywallFooterViewDelegate.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		1B1A66B228F8A84B00D6ACEA /* TeacherPaywallView + Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeacherPaywallView + Actions.swift"; sourceTree = "<group>"; };
+		1B283A2228FC0CDD00B900D9 /* UITextView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView + Extension.swift"; sourceTree = "<group>"; };
 		1B4D28FC28F3F5CB00F12DFE /* TeacherCourseTableViewCell + Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeacherCourseTableViewCell + Actions.swift"; sourceTree = "<group>"; };
 		1B4D28FF28F48CF200F12DFE /* PurchaseButtonsFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseButtonsFooterView.swift; sourceTree = "<group>"; };
 		1B4D290128F48CF200F12DFE /* TeacherPaywallFooterViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherPaywallFooterViewDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				1BD5F2E428E6D8E3007CC6E5 /* UIButton+UIImageExtension.swift */,
+				1B283A2228FC0CDD00B900D9 /* UITextView + Extension.swift */,
 			);
 			path = ViewExtensions;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				1BD5F2E128E38FB8007CC6E5 /* TeacherCourseTableViewCell.swift in Sources */,
 				1BF6DB0B28CCA4D000A39EBA /* TacherPaywallModuleBuilder.swift in Sources */,
 				1BF6DAFD28CC67FC00A39EBA /* TeacherCourseRouter.swift in Sources */,
+				1B283A2328FC0CDD00B900D9 /* UITextView + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

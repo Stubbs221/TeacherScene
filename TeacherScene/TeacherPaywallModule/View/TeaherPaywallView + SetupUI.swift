@@ -32,15 +32,17 @@ extension TeacherPaywallView {
         
         NSLayoutConstraint.activate([
             scForFirstSubscriptionPlan.topAnchor.constraint(equalTo: teacherFeaturesScrollView.bottomAnchor),
-            scForFirstSubscriptionPlan.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
+//            scForFirstSubscriptionPlan.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
             scForFirstSubscriptionPlan.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            scForFirstSubscriptionPlan.heightAnchor.constraint(equalToConstant: 10)])
+            scForFirstSubscriptionPlan.heightAnchor.constraint(equalToConstant: 10),
+            scForFirstSubscriptionPlan.subviews[0].subviews[0].leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17)])
         
         NSLayoutConstraint.activate([
             scForSecondSubscriptionPlan.topAnchor.constraint(equalTo: teacherFeaturesScrollView.bottomAnchor),
-            scForSecondSubscriptionPlan.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
+//            scForSecondSubscriptionPlan.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
             scForSecondSubscriptionPlan.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            scForSecondSubscriptionPlan.heightAnchor.constraint(equalToConstant: 10)])
+            scForSecondSubscriptionPlan.heightAnchor.constraint(equalToConstant: 10),
+            scForSecondSubscriptionPlan.subviews[0].subviews[0].leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17)])
         
         NSLayoutConstraint.activate([
             priceLabel.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor, constant: 17),

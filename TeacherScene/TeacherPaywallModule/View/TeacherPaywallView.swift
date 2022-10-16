@@ -25,11 +25,14 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
     
     var output: TeacherPaywallViewOutput?
     
-    var teacherStarterPackFeatureDataArray: [FeatureModel] = [FeatureModel](repeating: FeatureModel(image: UIImage(named: "teacherImage")!, name: "Опытный наставник", description: "15 лет опыта работа \nФакты о репетиторе \nФакты о репетиторе ", backgroundColor: .white), count: 5)
+    var teacherStarterPackFeatureDataArray: [FeatureModel] = [FeatureModel](repeating: FeatureModel(image: UIImage(named: "teacherImage")!, name: "Опытный наставник Опытный наставник ", description: "15 лет опыта работа \nФакты о репетиторе \nФакты о репетиторе \nФакты о репетиторе \nФакты о репетиторе dfbdfbdfjvndfjnbdjfnbjdfdbn", backgroundColor: .white), count: 5)
     
     var teacherFullFeatureDataArray: [FeatureModel] = [FeatureModel](repeating: FeatureModel(image: UIImage(named: "taskMockImage")!, name: "Опытный наставник", description: "15 лет опыта работа \nDungeon master \nPerfomance artist", backgroundColor: .white), count: 3)
     
     var timer = Timer()
+    
+//    флаг выбора сегмента, нужен для выбора пейдж контрола для отображения и запуска
+    var isStarterPackFeatureSegmentStateSelected = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +118,17 @@ class TeacherPaywallView: UIViewController, TeacherPaywallViewInput {
         
         return sc
     }()
+    
+//     func makeSCPageView(with dotsNumber: Int) -> SCPageControlView {
+//        let sc = SCPageControlView()
+//        
+//        sc.frame = CGRect(x: 0, y: 0, width: dotsNumber * 28, height: 10)
+//        sc.translatesAutoresizingMaskIntoConstraints = false
+//        sc.scp_style = .SCNormal
+//        sc.set_view(dotsNumber, current: 0, current_color: .white, disable_color: UIColor.hexStringToUIColor(hex: "D9D9D9"))
+//        
+//        return sc
+//    }
     
     lazy var scForSecondSubscriptionPlan: SCPageControlView = {
         let sc = SCPageControlView()

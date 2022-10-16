@@ -10,8 +10,12 @@ import UIKit
 
 extension TeacherPaywallView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.isStarterPackFeatureSegmentStateSelected {
+            scForFirstSubscriptionPlan.scroll_did(teacherFeaturesScrollView)
+        } else {
+            scForSecondSubscriptionPlan.scroll_did(teacherFeaturesScrollView)
+        }
         
-        scForFirstSubscriptionPlan.scroll_did(teacherFeaturesScrollView)
     }
 }
 

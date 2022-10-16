@@ -6,19 +6,26 @@
 //
 
 import UIKit
+import SCPageControl
 
 extension TeacherPaywallView {
     func updateTeacherFeaturesScrollView(with data: [FeatureModel]) {
         
-        if data.count == teacherStarterPackFeatureDataArray.count {
-            scForFirstSubscriptionPlan.isHidden = false
-            scForSecondSubscriptionPlan.isHidden = true
-        } else {
-            scForFirstSubscriptionPlan.isHidden = true
-            scForSecondSubscriptionPlan.isHidden = false
-        }
+        
+
         
         self.changeScrollViewOffsetToZero()
+        
+        if data.count == teacherStarterPackFeatureDataArray.count {
+            self.isStarterPackFeatureSegmentStateSelected = true
+            self.scForFirstSubscriptionPlan.isHidden = false
+            self.scForSecondSubscriptionPlan.isHidden = true
+                } else {
+                    self.isStarterPackFeatureSegmentStateSelected = false
+                    self.scForFirstSubscriptionPlan.isHidden = true
+                    self.scForSecondSubscriptionPlan.isHidden = false
+                }
+        
         
         for subview in self.teacherFeaturesScrollView.subviews {
             subview.removeFromSuperview()
@@ -34,6 +41,9 @@ extension TeacherPaywallView {
         
         self.teacherFeaturesScrollView.contentSize = CGSize(width: ((UIScreen.main.bounds.width / 1.4) * CGFloat(data.count) + CGFloat(10 * (data.count))), height: UIScreen.main.bounds.height / 2.44)
         
+        
+//        scForFirstSubscriptionPlan = SCPageControlView()
+//
         
         self.changeScrollViewOffsetUsingTimer()
     }
@@ -69,21 +79,27 @@ extension TeacherPaywallView {
         
         lazy var featureNameLabel: UILabel = {
             let label = UILabel()
+            label.adjustsFontSizeToFitWidth = true
             label.translatesAutoresizingMaskIntoConstraints = false
             label.text = feature.featureName
             label.font = UIFont.systemFont(ofSize: 23, weight: .medium)
             return label
         }()
         
-        lazy var featureDescriptionTextView: UITextView = {
-            let textView = UITextView()
+        lazy var featureDescriptionTextView: UILabel = {
+            let textView = UILabel()
             textView.translatesAutoresizingMaskIntoConstraints = false
+//            textView.isScrollEnabled = false
+//            textView.sizeToFit()
+//            textView.adjustsFontForContentSizeCategory = true
+            textView.adjustsFontSizeToFitWidth = true
             textView.text = feature.featureDescription
             textView.font = UIFont.systemFont(ofSize: 13)
-            textView.isEditable = false
-            textView.isUserInteractionEnabled = false
+            textView.numberOfLines = 5
+//            textView.isEditable = false
+//            textView.isUserInteractionEnabled = false
             
-            textView.backgroundColor = feature.backgroundColor
+//            textView.backgroundColor = feature.backgroundColor
             return textView
         }()
         
@@ -119,6 +135,8 @@ extension TeacherPaywallView {
             featureDescriptionTextView.trailingAnchor.constraint(equalTo: featureNameLabel.trailingAnchor),
             featureDescriptionTextView.topAnchor.constraint(equalTo: featureNameLabel.bottomAnchor),
             featureDescriptionTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)])
+        
+//        featureDescriptionTextView.updateTextFont()
         
         return mainView
     }
